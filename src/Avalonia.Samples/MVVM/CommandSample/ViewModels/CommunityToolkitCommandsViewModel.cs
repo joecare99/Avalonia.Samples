@@ -15,23 +15,14 @@ namespace CommandSample.ViewModels;
 /// </remarks>
 public partial class CommunityToolkitCommandsViewModel : ObservableObject // Note: Since our ViewModelBase isn't an ObservableObject, we have to specify it on our own. This may be different on your side. 
 {
-    // We can use the constructor to initialize the Commands.
-    public CommunityToolkitCommandsViewModel()
-    {
-        // Init OpenThePodBayDoorsDirectCommand    
-        OpenThePodBayDoorsDirectCommand = new RelayCommand(OpenThePodBayDoors);
-    }
-
     /// <summary>
     /// This command will ask HAL-9000 to open the pod bay doors
     /// </summary>
     /// <remarks>
     /// Note: We use the interface ICommand here because this makes things more flexible.
-    /// </remarks> 
-    public ICommand OpenThePodBayDoorsDirectCommand { get; }
-
-    // The method that will be executed when the command is invoked
-    private void OpenThePodBayDoors()
+    /// </remarks>
+    [RelayCommand]
+    private void OpenThePodBayDoorsDirect()
     {
         ConversationLog.Clear();
         AddToConvo("I'm sorry, Dave, I'm afraid I can't do that.");
