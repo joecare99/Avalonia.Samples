@@ -2064,7 +2064,7 @@ pre.rouge .gs {
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-While OS Automation approach uses the actual real application in tests, it is hard to recommend due to difficulties with setup and running on multiple platforms. It&#8217;s recommended to always use Headless testing except for test cases when you need to test OS features on the app.
+While the OS Automation approach uses the actual real application in tests, it is hard to recommend due to difficulties with setup and running on multiple platforms. It&#8217;s recommended to always use Headless testing except for test cases when you need to test OS features on the app.
 </td>
 </tr>
 </table>
@@ -2109,20 +2109,20 @@ While OS Automation approach uses the actual real application in tests, it is ha
 </div>
 </div>
 <div class="paragraph">
-<p>This is needed in order to make controls marked with <strong>Name</strong> attribute visible in the tests project. But it can be avoided, if you use <strong>window.Find&lt;Button&gt;("ButtonName")</strong> method instead directly from the tests.</p>
+<p>This is needed to make controls marked with the <strong>Name</strong> attribute visible in the test project. But it can be avoided if you use <strong>window.Find&lt;Button&gt;("ButtonName")</strong> method instead directly from the tests.</p>
 </div>
 </li>
 <li>
 <p>Program.cs, App.axaml, App.axaml.cs</p>
 <div class="paragraph">
-<p>Default entry point and App definitions generated from the template. No additional changes required in order to make app testable.</p>
+<p>Default entry point and App definitions are generated from the template. No additional changes are required in order to make the app testable.</p>
 </div>
 </li>
 <li>
 <p>MainWindow.axaml, MainWindow.axaml.cs</p>
 <div class="paragraph">
 <p>The window contains two text boxes for user input, four buttons for arithmetic operations, and a text block to display the result. The buttons are bound to commands in the MainWindowViewModel.
-Important: all control that we want to have access to have <strong>Name</strong> attribute on them. This allows to programmatically click button or read text fro the text block.</p>
+Important: all controls that we want to have access to have the <strong>Name</strong> attribute on them. This allows us to programmatically click the button or read text from the text block.</p>
 </div>
 </li>
 <li>
@@ -2142,7 +2142,7 @@ When the user clicks one of the operation buttons, the respective command is exe
 <h2 id="_preparing_xunit_project">Preparing XUnit project</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To run Appium tests we will use XUnit:</p>
+<p>To run Appium tests, we will use XUnit:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2215,7 +2215,7 @@ When the user clicks one of the operation buttons, the respective command is exe
 <p>Since we don&#8217;t have direct access to the view model or window object, we need to request all controls via FindElementByAccessibilityId.</p>
 </li>
 <li>
-<p>Window is shared per test class, so input fields needs to be cleared before or after using them.</p>
+<p>Window is shared per test class, so input fields need to be cleared before or after using them.</p>
 </li>
 </ul>
 </div>
@@ -2256,7 +2256,7 @@ When the user clicks one of the operation buttons, the respective command is exe
 <p>Give Xcode helper the required permissions, see <a href="https://apple.stackexchange.com/questions/334008/xcode-helper-does-not-have-the-accessibility-permissions-needed-to-run-tests" class="bare">https://apple.stackexchange.com/questions/334008/xcode-helper-does-not-have-the-accessibility-permissions-needed-to-run-tests</a></p>
 </li>
 <li>
-<p>Bundle TestableApp and install in your system</p>
+<p>Bundle TestableApp and install it in your system</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2271,7 +2271,7 @@ this part is not documented in this samples project, as it gets pretty complicat
 </div>
 </li>
 <li>
-<p>Make sure that DefaultAppFixture has valid macOS app bundle ID to run</p>
+<p>Make sure that DefaultAppFixture has a valid macOS app bundle ID to run</p>
 </li>
 </ul>
 </div>
@@ -2307,7 +2307,7 @@ this part is not documented in this samples project, as it gets pretty complicat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-11-06 19:42:36 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>

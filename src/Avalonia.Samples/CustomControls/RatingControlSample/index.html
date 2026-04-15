@@ -2054,7 +2054,7 @@ pre.rouge .gs {
 <li><a href="#_step_7_add_user_interaction">Step 7: Add user interaction</a></li>
 <li><a href="#_step_8_add_a_controltheme_for_the_ratingcontrol">Step 8: Add a <code>ControlTheme</code> for the RatingControl</a></li>
 <li><a href="#_step_9_theme_variant">Step 9: Theme Variant</a></li>
-<li><a href="#_step_10_create_a_sample_to_try_out_the_custom_control">Step 10: Create a sample to try-out the custom Control</a></li>
+<li><a href="#_step_10_create_a_sample_to_try_out_the_custom_control">Step 10: Create a sample to try out the custom Control</a></li>
 <li><a href="#_step_11_see_it_in_action">Step 11: See it in action</a></li>
 </ul>
 </li>
@@ -2088,13 +2088,13 @@ pre.rouge .gs {
 <div class="sect2">
 <h3 id="_some_basics_about_controls_in_avalonia">Some basics about Controls in Avalonia</h3>
 <div class="paragraph">
-<p>Whenever we want to create a new control, we need to derive from a valid base class, which implements the needed interfaces and functions like styling, layout and user interaction. Below you can find a list of possible base-classes:</p>
+<p>Whenever we want to create a new control, we need to derive from a valid base class, which implements the necessary interfaces and functions like styling, layout and user interaction. Below you can find a list of possible base-classes:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Control</dt>
 <dd>
-<p>Use this as a base class if you want to render the control on your own and you want the control to look the same in every App (for example: <code>TextBlock</code>, <code>Image</code>).</p>
+<p>Use this as a base class if you want to render the control on your own, and you want the control to look the same in every App (for example: <code>TextBlock</code>, <code>Image</code>).</p>
 </dd>
 <dt class="hdlist1">TemplatedControl</dt>
 <dd>
@@ -2119,7 +2119,7 @@ You can also extend existing controls like <code>Button</code>, <code>TextBox</c
 </table>
 </div>
 <div class="paragraph">
-<p>For more information about the types of controls please visit the <a href="https://docs.avaloniaui.net/docs/basics/user-interface/controls/creating-controls/choosing-a-custom-control-type">[Documentation]</a>.</p>
+<p>For more information about the types of controls, please visit the <a href="https://docs.avaloniaui.net/docs/custom-controls/">[Documentation]</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2131,15 +2131,15 @@ You can also extend existing controls like <code>Button</code>, <code>TextBox</c
 <dl>
 <dt class="hdlist1">StyledProperty</dt>
 <dd>
-<p>A <code>StyledProperty</code> is a property, which support styling and animation. use this type of property if you think the user of your control will most likely want to define this property in a <code>Style</code> (e.g.: <code>Foreground</code>, <code>Background</code>, <code>Margin</code>, &#8230;&#8203;).</p>
+<p>A <code>StyledProperty</code> is a property, which support styling and animation. Use this type of property if you think the user of your control will most likely want to define this property in a <code>Style</code> (e.g.: <code>Foreground</code>, <code>Background</code>, <code>Margin</code>, …)</p>
 </dd>
 <dt class="hdlist1">DirectProperty</dt>
 <dd>
-<p>A <code>DirectProperty</code> is a property which can only be read and set in an actual control instance. Use this property if it&#8217;s likely to be set individually on each instance (e.g.: <code>Text</code>, <code>Value</code>, &#8230;&#8203;) or if you need a read-only property (e.g:: <code>HasFocus</code>)</p>
+<p>A <code>DirectProperty</code> is a property which can only be read and set in an actual control instance. Use this property if it&#8217;s likely to be set individually on each instance (e.g.: <code>Text</code>, <code>Value</code>, …) or if you need a read-only property (e.g:: <code>HasFocus</code>)</p>
 </dd>
 <dt class="hdlist1">AttachedProperty</dt>
 <dd>
-<p>An <code>AttachedProperty</code> is a property that can be set on any <code>Control</code>, even it doesn&#8217;t define the property on it&#8217;s own (e.g.: <code>Grid.Row</code>, <code>DockPanel.Dock</code>, &#8230;&#8203;)</p>
+<p>An <code>AttachedProperty</code> is a property that can be set on any <code>Control</code>, even it doesn&#8217;t define the property on its own (e.g.: <code>Grid.Row</code>, <code>DockPanel.Dock</code>, …)</p>
 </dd>
 </dl>
 </div>
@@ -2156,7 +2156,7 @@ You can also extend existing controls like <code>Button</code>, <code>TextBox</c
 <dl>
 <dt class="hdlist1">TemplateParts</dt>
 <dd>
-<p>Some <code>Controls</code> require specific <code>Controls</code> inside the the <code>ControlTemplate</code>, which also needs to have a defined name in order to reference them inside the code behind. By convention these controls have a name with the prefix <code>"PART_"</code>. For example, you can use this to listen to events of these template parts.</p>
+<p>Some <code>Controls</code> require specific <code>Controls</code> inside the the <code>ControlTemplate</code>, which also needs to have a defined name to reference them inside the code behind. By convention these controls have a name with the prefix <code>"PART_"</code>. For example, you can use this to listen to events of these template parts.</p>
 </dd>
 <dt class="hdlist1">TemplateBinding</dt>
 <dd>
@@ -2171,7 +2171,7 @@ You can also extend existing controls like <code>Button</code>, <code>TextBox</c
 <p>Before you create any control, you should already have an idea which functions it should provide, how it should look like and how the user should interact with the control. Remember, the user interface is the door to your program.</p>
 </div>
 <div class="paragraph">
-<p>First of all we will write a list of requirements:</p>
+<p>First, we will write a list of requirements:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2182,7 +2182,7 @@ You can also extend existing controls like <code>Button</code>, <code>TextBox</c
 <p>The user must be able to select their rating</p>
 </li>
 <li>
-<p>There must be a visual feedback showing the current rating</p>
+<p>There must be visual feedback showing the current rating</p>
 </li>
 <li>
 <p>The user should be able to interact with the mouse</p>
@@ -2211,13 +2211,13 @@ You can also extend existing controls like <code>Button</code>, <code>TextBox</c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Items listed above containing the word <em>should</em> mean are nice to have but the control will also work without this requirement fulfilled. On the other hand, requirements with the word <strong>must</strong> cannot be omitted, as the function of the control will not be given.
+Items listed above containing the word <em>should</em> mean they are nice to have, but the control will also work without this requirement fulfilled. On the other hand, requirements with the word <strong>must</strong> cannot be omitted, as the function of the control will not be given.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Now that we know the functions we want to serve, we can create a simple sketch of how the control should look like:</p>
+<p>Now that we know the functions we want to serve, we can create a simple sketch of what the control should look like:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2239,7 +2239,7 @@ Items listed above containing the word <em>should</em> mean are nice to have but
 <div class="sect2">
 <h3 id="_step_2_add_the_ratingcontrol_class">Step 2: Add the RatingControl-class</h3>
 <div class="paragraph">
-<p>In our project we create a new folder called <code>Controls</code>. inside this folder we will add a file called <code>RatingControl.cs</code>. Now we need to decide, which base-class we want to use. We want our control to be able to be re-styled by the developer, so we decide to base on <code>TemplatedControl</code>.</p>
+<p>In our project we create a new folder called <code>Controls</code>. Inside this folder we will add a file called <code>RatingControl.cs</code>. Now we need to decide which base-class we want to use. We want our control to be able to be re-styled by the developer, so we decide to base on <code>TemplatedControl</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2252,7 +2252,7 @@ Items listed above containing the word <em>should</em> mean are nice to have but
 <div class="sect2">
 <h3 id="_step_3_add_the_numberofstars_property">Step 3: Add the NumberOfStars-Property</h3>
 <div class="paragraph">
-<p>If we want to create a flexible control, we should not hardcode the number of stars. Instead, the developer should be able to define it inside a <code>Style</code>. Therefore we add a <code>StyledProperty</code> called <code>NumberOfStars</code>. The type of our property is <code>Integer</code>, the default value is <code>5</code>:</p>
+<p>If we want to create a flexible control, we should not be hardcoding the number of stars. Instead, the developer should be able to define it inside a <code>Style</code>. Therefore, we add a <code>StyledProperty</code> called <code>NumberOfStars</code>. The type of our property is <code>Integer</code>, the default value is <code>5</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2360,7 +2360,7 @@ We use a <code>DirectProperty</code> because it will improve performance and all
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-In this sample the value is of type <code>int</code>, so only full stars can be shown. If you want to add support for half stars, consider to use <code>float</code> or <code>double</code>.
+In this sample the value is of type <code>int</code>, so only full stars can be shown. If you want to add support for partial stars, consider to use <code>float</code> or <code>double</code>.
 </td>
 </tr>
 </table>
@@ -2455,7 +2455,7 @@ In this sample the value is of type <code>int</code>, so only full stars can be 
 </div>
 </div>
 <div class="paragraph">
-<p>Moreover we want to update the <code>Stars</code>-Property as soon as a new instance of our control was created. We can do this inside the constructor:</p>
+<p>Moreover, we want to update the <code>Stars</code>-Property as soon as a new instance of our control was created. We can do this inside the constructor:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2470,7 +2470,7 @@ In this sample the value is of type <code>int</code>, so only full stars can be 
 <div class="sect2">
 <h3 id="_step_7_add_user_interaction">Step 7: Add user interaction</h3>
 <div class="paragraph">
-<p>Okay, all properties we need are there. But wait, how should the user interact with our control? At the moment, we do not handle any user interaction. At least when a user clicks on a star, the value should be set to the number that this star has. To achieve this we require the <code>ControlTemplate</code> to provide an <code>ItemsControl</code> called <code>PART_StarsPresenter</code>. Use the <code>TemplatePart-Attribute</code> to indicate this.</p>
+<p>Okay, all properties we need are there. But wait, how should the user interact with our control? At the moment, we do not handle any user interaction. At least when a user clicks on a star, the value should be set to the number that this star has. To achieve this, we require the <code>ControlTemplate</code> to provide an <code>ItemsControl</code> called <code>PART_StarsPresenter</code>. Use the <code>TemplatePart-Attribute</code> to indicate this.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2520,7 +2520,7 @@ In this sample the value is of type <code>int</code>, so only full stars can be 
 </div>
 </div>
 <div class="paragraph">
-<p>As you can see we did the following:</p>
+<p>As you can see, we did the following:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2539,7 +2539,7 @@ In this sample the value is of type <code>int</code>, so only full stars can be 
 </ol>
 </div>
 <div class="paragraph">
-<p>By convention we know that the <code>Items</code> of our <code>ItemsControl</code> will be a <code>Path</code>. We make use of this convention by checking if the <code>Source</code> of the event is a <code>Path</code> and if it was, we know its <code>DataContext</code> will be an <code>Integer</code>. Therefore the new <code>Value</code> of our <code>RatingControl</code> is set to the given <code>Integer</code>:</p>
+<p>By convention, we know that the <code>Items</code> of our <code>ItemsControl</code> will be a <code>Path</code>. We make use of this convention by checking if the <code>Source</code> of the event is a <code>Path</code> and if it was, we know its <code>DataContext</code> will be an <code>Integer</code>. Therefore, the new <code>Value</code> of our <code>RatingControl</code> is set to the given <code>Integer</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2571,10 +2571,10 @@ Because we use the <code>as</code>-operator, our <code>Value</code> would become
 <div class="sect2">
 <h3 id="_step_8_add_a_controltheme_for_the_ratingcontrol">Step 8: Add a <code>ControlTheme</code> for the RatingControl</h3>
 <div class="paragraph">
-<p>While we can already add a <code>RatingControl</code> to our View, we will see nothing as there is no <code>RatingControl</code> available. To change this we add another folder called <code>Themes</code>. Add a file called <code>RatingStyles.axaml</code> which is of type <code>ResourceDictionary (Avalonia)</code>.</p>
+<p>While we can already add a <code>RatingControl</code> to our View, we will see nothing as there is no <code>RatingControl</code> available. To change this, we add another folder called <code>Themes</code>. Add a file called <code>RatingControlTheme.axaml</code> which is of type <code>ResourceDictionary (Avalonia)</code>.</p>
 </div>
 <div class="paragraph">
-<p>First of all we need to add the needed namespaces to our <code>ResourceDictionary</code>:</p>
+<p>First we need to add the necessary namespaces to our <code>ResourceDictionary</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2593,7 +2593,7 @@ Because we use the <code>as</code>-operator, our <code>Value</code> would become
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you want to have preview of the <code>ResourceDictionary</code>, just add one or more <code>RatingControls</code> to the <code>Design.PreviewWith</code>-section:</p>
+<p>If you want to have preview of the <code>ResourceDictionary</code>, add one or more <code>RatingControls</code> to the <code>Design.PreviewWith</code>-section:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2694,7 +2694,7 @@ Because we use the <code>as</code>-operator, our <code>Value</code> would become
 </div>
 </div>
 <div class="paragraph">
-<p>We add another class <code>selected</code>. We make use of the fact that we can <a href="https://docs.avaloniaui.net/docs/styling/styles#style-classes">[add or remove <code>Style-classes</code>]</a> in Avalonia. We use a <a href="https://github.com/AvaloniaUI/Avalonia.Samples/tree/main/src/Avalonia.Samples/MVVM/ValueConversionSample">[<code>MultiConverter</code>]</a> called <code>IsSmallerOrEqualConverter</code> which compare the stars number with the selected value and return <code>true</code> if the number is smaller or equal to the selected value. The code of the converter is shown below.</p>
+<p>We add another class <code>selected</code>. We make use of the fact that we can <a href="https://docs.avaloniaui.net/docs/styling/styles#style-classes">[add or remove <code>Style-classes</code>]</a> in Avalonia. We use a <a href="https://github.com/AvaloniaUI/Avalonia.Samples/tree/main/src/Avalonia.Samples/MVVM/ValueConversionSample">[<code>MultiConverter</code>]</a> called <code>IsSmallerOrEqualConverter</code> which compare the number of stars with the selected value and return <code>true</code> if the number is smaller or equal to the selected value. The code of the converter is shown below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2726,7 +2726,7 @@ Because we use the <code>as</code>-operator, our <code>Value</code> would become
 </div>
 </div>
 <div class="paragraph">
-<p>Last but not least we want a visual feedback if the user hovers a star with their mouse device. So we add a <code>Style</code> with the class name <code>star</code> and the <a href="https://docs.avaloniaui.net/docs/styling/styles#pseudoclasses">[pseudoclass]</a> <code>:pointerover</code>.</p>
+<p>Last but not least, we want visual feedback if the user hovers a star with their mouse device. So we add a <code>Style</code> with the class name <code>star</code> and the <a href="https://docs.avaloniaui.net/docs/styling/styles#pseudoclasses">[pseudoclass]</a> <code>:pointerover</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2743,7 +2743,7 @@ Because we use the <code>as</code>-operator, our <code>Value</code> would become
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In Avalonia 11.x <code>Styles</code>(see <a href="https://github.com/AvaloniaUI/Avalonia.Samples/blob/be2895d5461fd4748044d5a81c571547965b9f9d/src/Avalonia.Samples/CustomControls/RatingControlSample/README.adoc#step-8-add-a-style-for-the-ratingcontrol">this</a>) is supported, but since 11.0 <code>ControlThemes</code> are preferred.
+If you don&#8217;t want to use <code>ControlThemes</code>, you can also use <code>Styles</code> to define the look of your control. However, <code>ControlThemes</code> have some advantages over <code>Styles</code>. Visit the <a href="https://docs.avaloniaui.net/docs/styling/control-themes">[Documentation]</a> for more information about the differences and advantages of <code>ControlThemes</code> over <code>Styles</code>.
 </td>
 </tr>
 </table>
@@ -2754,10 +2754,10 @@ In Avalonia 11.x <code>Styles</code>(see <a href="https://github.com/AvaloniaUI/
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.avaloniaui.net/docs/basics/user-interface/styling/styles">Styles</a></p>
+<p><a href="https://docs.avaloniaui.net/docs/styling/styles">Styles</a></p>
 </li>
 <li>
-<p><a href="https://docs.avaloniaui.net/docs/basics/user-interface/styling/control-themes">Control Themes</a></p>
+<p><a href="https://docs.avaloniaui.net/docs/styling/control-themes">Control Themes</a></p>
 </li>
 </ul>
 </div>
@@ -2781,24 +2781,24 @@ In Avalonia 11.x <code>Styles</code>(see <a href="https://github.com/AvaloniaUI/
         <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Height"</span> <span class="na">Value=</span><span class="s">"32"</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Margin"</span> <span class="na">Value=</span><span class="s">"5"</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Fill"</span> <span class="na">Value=</span><span class="s">"{DynamicResource RatingControlUnselectedBrush}"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Stroke"</span> <span class="na">Value=</span><span class="s">"{DynamicResource RatingControlUnselectedStrokenBrush}"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Stroke"</span> <span class="na">Value=</span><span class="s">"{DynamicResource RatingControlUnselectedStrokeBrush}"</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"StrokeThickness"</span> <span class="na">Value=</span><span class="s">"2"</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Stretch"</span> <span class="na">Value=</span><span class="s">"Uniform"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/Style&gt;</span>
 
     <span class="nt">&lt;Style</span> <span class="na">Selector=</span><span class="s">"Path.selected"</span> <span class="nt">&gt;</span>
         <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Fill"</span> <span class="na">Value=</span><span class="s">"{DynamicResource RatingControlSelectedBrush}"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Stroke"</span> <span class="na">Value=</span><span class="s">"{DynamicResource RatingControlSelectedStrokenBrush}"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Stroke"</span> <span class="na">Value=</span><span class="s">"{DynamicResource RatingControlSelectedStrokeBrush}"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/Style&gt;</span>
 
     <span class="nt">&lt;Style</span> <span class="na">Selector=</span><span class="s">"Path.star:pointerover"</span> <span class="nt">&gt;</span>
         <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"RenderTransform"</span> <span class="na">Value=</span><span class="s">"scale(1.3)"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Fill"</span> <span class="na">Value=</span><span class="s">"{DynamicResource RatingControlSelectedStrokenBrush}"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">"Stroke"</span> <span class="na">Value=</span><span class="s">"{DynamicResource RatingControlPointerOverStrokeBrush}"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/Style&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>now, will be define Resource for each Theme Variant</p>
+<p>now, we will define Resources for each Theme Variant</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2807,26 +2807,32 @@ In Avalonia 11.x <code>Styles</code>(see <a href="https://github.com/AvaloniaUI/
     <span class="nt">&lt;ResourceDictionary</span> <span class="na">x:Key=</span><span class="s">"Default"</span><span class="nt">&gt;</span>
       <span class="c">&lt;!-- Selected Brushes--&gt;</span>
       <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedBrush"</span> <span class="na">Color=</span><span class="s">"Gold"</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedStrokenBrush"</span> <span class="na">Color=</span><span class="s">"Goldenrod"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedStrokeBrush"</span> <span class="na">Color=</span><span class="s">"Goldenrod"</span><span class="nt">/&gt;</span>
       <span class="c">&lt;!-- Unselected Brushes--&gt;</span>
       <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedBrush"</span> <span class="na">Color=</span><span class="s">"White"</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedStrokenBrush"</span> <span class="na">Color=</span><span class="s">"Gray"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedStrokeBrush"</span> <span class="na">Color=</span><span class="s">"Gray"</span><span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- PointerOverBrush --&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlPointerOverStrokeBrush"</span> <span class="na">Color=</span><span class="s">"Black"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/ResourceDictionary&gt;</span>
     <span class="nt">&lt;ResourceDictionary</span> <span class="na">x:Key=</span><span class="s">"Light"</span><span class="nt">&gt;</span>
       <span class="c">&lt;!-- Selected Brushes--&gt;</span>
       <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedBrush"</span> <span class="na">Color=</span><span class="s">"Gold"</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedStrokenBrush"</span> <span class="na">Color=</span><span class="s">"Gray"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedStrokeBrush"</span> <span class="na">Color=</span><span class="s">"Gray"</span><span class="nt">/&gt;</span>
       <span class="c">&lt;!-- Unselected Brushes--&gt;</span>
       <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedBrush"</span> <span class="na">Color=</span><span class="s">"White"</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedStrokenBrush"</span> <span class="na">Color=</span><span class="s">"Gray"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedStrokeBrush"</span> <span class="na">Color=</span><span class="s">"Gray"</span><span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- PointerOverBrush --&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlPointerOverStrokeBrush"</span> <span class="na">Color=</span><span class="s">"Black"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/ResourceDictionary&gt;</span>
     <span class="nt">&lt;ResourceDictionary</span> <span class="na">x:Key=</span><span class="s">"Dark"</span><span class="nt">&gt;</span>
       <span class="c">&lt;!-- Selected Brushes--&gt;</span>
       <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedBrush"</span> <span class="na">Color=</span><span class="s">"Red"</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedStrokenBrush"</span> <span class="na">Color=</span><span class="s">"White"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlSelectedStrokeBrush"</span> <span class="na">Color=</span><span class="s">"White"</span><span class="nt">/&gt;</span>
       <span class="c">&lt;!-- Unselected Brushes--&gt;</span>
       <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedBrush"</span> <span class="na">Color=</span><span class="s">"Transparent"</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedStrokenBrush"</span> <span class="na">Color=</span><span class="s">"White"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlUnselectedStrokeBrush"</span> <span class="na">Color=</span><span class="s">"Gray"</span><span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- PointerOverBrush --&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">"RatingControlPointerOverStrokeBrush"</span> <span class="na">Color=</span><span class="s">"White"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/ResourceDictionary&gt;</span>
   <span class="nt">&lt;/ResourceDictionary.ThemeDictionaries&gt;</span></code></pre>
 </div>
@@ -2839,7 +2845,7 @@ In Avalonia 11.x <code>Styles</code>(see <a href="https://github.com/AvaloniaUI/
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you want to have preview of the <code>ResourceDictionary</code> support Theme Variants, just add one or more <code>RatingControls</code> to the <code>Design.PreviewWith</code>-section:</p>
+<p>If you want to have preview of the <code>ResourceDictionary</code> support Theme Variants, add one or more <code>RatingControls</code> to the <code>Design.PreviewWith</code>-section:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2880,7 +2886,7 @@ In Avalonia 11.x <code>Styles</code>(see <a href="https://github.com/AvaloniaUI/
 </div>
 </div>
 <div class="sect2">
-<h3 id="_step_10_create_a_sample_to_try_out_the_custom_control">Step 10: Create a sample to try-out the custom Control</h3>
+<h3 id="_step_10_create_a_sample_to_try_out_the_custom_control">Step 10: Create a sample to try out the custom Control</h3>
 <div class="paragraph">
 <p>In Avalonia an external <code>ResourceDictionary</code>-file needs to be added via <code>ResourceInclude</code> into the <code>Resources</code>-node of your choice before it gets applied. We will add it into <code>App.Resources</code> as shown below:</p>
 </div>
@@ -2890,7 +2896,7 @@ In Avalonia 11.x <code>Styles</code>(see <a href="https://github.com/AvaloniaUI/
     <span class="nt">&lt;ResourceDictionary&gt;</span>
       <span class="nt">&lt;ResourceDictionary.MergedDictionaries&gt;</span>
         <span class="c">&lt;!-- Don't miss this line --&gt;</span>
-        <span class="nt">&lt;ResourceInclude</span> <span class="na">Source=</span><span class="s">"/Styles/RatingStyles.axaml"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;ResourceInclude</span> <span class="na">Source=</span><span class="s">"/Themes/RatingControlTheme.axaml"</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;/ResourceDictionary.MergedDictionaries&gt;</span>
     <span class="nt">&lt;/ResourceDictionary&gt;</span>
   <span class="nt">&lt;/Application.Resources&gt;</span></code></pre>
@@ -2962,12 +2968,12 @@ For the complete sample including the <code>ViewModel</code> please see the sour
 <h2 id="_related">Related</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This sample has shown some basics about custom controls. If you want to use this control in production you may want to improve it further, for example:</p>
+<p>This sample has shown some basics about custom controls. If you want to use this control in production, you may want to improve it further, for example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Add it into a controls library</p>
+<p>Add it into a control library</p>
 </li>
 <li>
 <p>Add keyboard support</p>
@@ -2988,7 +2994,7 @@ For the complete sample including the <code>ViewModel</code> please see the sour
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-11-06 19:42:36 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>

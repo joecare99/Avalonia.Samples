@@ -2050,10 +2050,10 @@ pre.rouge .gs {
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The headless platform in AvaloniaUI provides the capability to run Avalonia applications without a visible graphical user interface (GUI). This allows for testing and automation scenarios on systems that lack a graphical environment, such as servers or continuous integration/continuous deployment (CI/CD) environments.</p>
+<p>The headless platform in AvaloniaUI provides the ability to run Avalonia applications without a visible graphical user interface (GUI). This allows for testing and automation scenarios on systems that lack a graphical environment, such as servers or continuous integration/continuous deployment (CI/CD) environments.</p>
 </div>
 <div class="paragraph">
-<p>At the same time, Headless UI testing is easiest and fastest way to test UI controls.</p>
+<p>At the same time, Headless UI testing is the easiest and fastest way to test UI controls.</p>
 </div>
 <!-- toc disabled -->
 <h3 id="_difficulty" class="discrete">Difficulty</h3>
@@ -2095,20 +2095,20 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="paragraph">
-<p>This is needed in order to make controls marked with <strong>Name</strong> attribute visible in the tests project. But it can be avoided, if you use <strong>window.Find&lt;Button&gt;("ButtonName")</strong> method instead directly from the tests.</p>
+<p>This is needed to make controls marked with the <strong>Name</strong> attribute visible in the test project. But it can be avoided if you use <strong>window.Find&lt;Button&gt;("ButtonName")</strong> method instead directly from the tests.</p>
 </div>
 </li>
 <li>
 <p>Program.cs, App.axaml, App.axaml.cs</p>
 <div class="paragraph">
-<p>Default entry point and App definitions generated from the template. No additional changes required in order to make app testable.</p>
+<p>Default entry point and App definitions are generated from the template. No additional changes are required in order to make the app testable.</p>
 </div>
 </li>
 <li>
 <p>MainWindow.axaml, MainWindow.axaml.cs</p>
 <div class="paragraph">
 <p>The window contains two text boxes for user input, four buttons for arithmetic operations, and a text block to display the result. The buttons are bound to commands in the MainWindowViewModel.
-Important: all control that we want to have access to have <strong>Name</strong> attribute on them. This allows to programmatically click button or read text fro the text block.</p>
+Important: all controls that we want to have access to have the <strong>Name</strong> attribute on them. This allows you to programmatically click the button or read text from the text block.</p>
 </div>
 </li>
 <li>
@@ -2131,7 +2131,7 @@ When the user clicks one of the operation buttons, the respective command is exe
 <p>To set up the NUnit project, follow their up-to-date documentation: <a href="https://docs.nunit.org/articles/nunit/getting-started/installation.html">NUnit Getting Started</a>.</p>
 </div>
 <div class="paragraph">
-<p>For this sample, we have used default NUnit template:</p>
+<p>For this sample, we have used the default NUnit template:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2240,19 +2240,19 @@ When the user clicks one of the operation buttons, the respective command is exe
 <div class="ulist">
 <ul>
 <li>
-<p>Instead of the typical [Test] attribute, we need to use [AvaloniaTest] as it sets up the UI thread. Similarly, instead of [Theory], there is a [AvaloniaTheory] attribute.</p>
+<p>Instead of the typical [Test] attribute, we need to use [AvaloniaTest] as it sets up the UI thread. Similarly, instead of [Theory], there is an [AvaloniaTheory] attribute.</p>
 </li>
 <li>
 <p>It&#8217;s easier to test when you have some top level like a Window to start with</p>
 </li>
 <li>
-<p>Window must be shown in order to get layout processed. Note, no actual window is created, as it&#8217;s a headless platform.</p>
+<p>Window must be shown to get layout processed. Note, no actual window is created, as it&#8217;s a headless platform.</p>
 </li>
 <li>
 <p>We can access control by their Name, as it was set in previous steps</p>
 </li>
 <li>
-<p>There are many ways to simulate input in the window, commons ones are:</p>
+<p>There are many ways to simulate input in the window, common ones are:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -2267,14 +2267,14 @@ When the user clicks one of the operation buttons, the respective command is exe
 <li>
 <p>Set text directly to the view model</p>
 <div class="paragraph">
-<p>While setting text directly is the easiest way, it doesn&#8217;t really how user would act in the real application, as it skips input processing completely. Although, for many test cases it is sufficient.</p>
+<p>While setting text directly is the easiest way, it doesn&#8217;t really simulate how the user would act in the real application, as it skips input processing completely. Although, for many test cases it is enough.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>We can read properties to validate that value was actually changed</p>
+<p>We can read properties to validate that the value was actually changed</p>
 </li>
 </ul>
 </div>
@@ -2284,17 +2284,17 @@ When the user clicks one of the operation buttons, the respective command is exe
 <h2 id="_more">More</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>While this sample was pretty simple, Headless platform provides more features such as taking a screenshot of the control, so it can be compared with expected, or having input extension methods.</p>
+<p>While this sample was pretty simple, a Headless platform provides more features such as taking a screenshot of the control, so it can be compared with expected, or having input extension methods.</p>
 </div>
 <div class="paragraph">
-<p>For more information please visit detailed documentation page: <a href="https://docs.avaloniaui.net/docs/concepts/headless/" class="bare">https://docs.avaloniaui.net/docs/concepts/headless/</a></p>
+<p>For more information, please visit the detailed documentation page: <a href="https://docs.avaloniaui.net/docs/concepts/headless/" class="bare">https://docs.avaloniaui.net/docs/concepts/headless/</a></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-11-06 19:42:36 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>

@@ -2086,7 +2086,7 @@ pre.rouge .gs {
 <h2 id="_before_we_start">Before we start</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this sample we assume that you know what a <code>Binding</code> is and that you have a basic knowledge of the <code>MVVM</code> concepts. Moreover you should already know how to create a new Avalonia project.</p>
+<p>In this sample we assume that you know what a <code>Binding</code> is and that you have a basic knowledge of the <code>MVVM</code> concepts. Moreover, you should already know how to create a new Avalonia project.</p>
 </div>
 <div class="paragraph">
 <p>In case you want to refresh your knowledge, visit the <a href="../BasicMvvmSample">[Basic MVVM Sample]</a>.</p>
@@ -2094,7 +2094,7 @@ pre.rouge .gs {
 <div class="sect2">
 <h3 id="_icommand">ICommand</h3>
 <div class="paragraph">
-<p>If a class implements the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.windows.input.icommand?view=net-6.0">[<code>ICommand</code>]</a> interface it can be used to execute a <code>Method</code> in your <code>Model</code> or <code>ViewModel</code>.  Moreover, the interface allows you to easily enable or disable the <code>Control</code> (most often a <code>Button</code>), that your <code>Command</code> is bound to.</p>
+<p>If a class implements the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.windows.input.icommand?view=net-6.0">[<code>ICommand</code>]</a> interface, it can be used to execute a <code>Method</code> in your <code>Model</code> or <code>ViewModel</code>.  Moreover, the interface allows you to easily enable or disable the <code>Control</code> (most often a <code>Button</code>), that your <code>Command</code> is bound to.</p>
 </div>
 <div class="paragraph">
 <p>The interface has three members:</p>
@@ -2137,9 +2137,9 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_commands_and_long_running_tasks">Commands and long running Tasks</h4>
+<h4 id="_commands_and_long_running_tasks">Commands and long-running Tasks</h4>
 <div class="paragraph">
-<p>Some <code>MVVM</code>-libs, provide an async implementations of the <code>ICommand</code> interface. That way we can execute long running tasks from our UI without blocking the UI.</p>
+<p>Some <code>MVVM</code>-libs, provide an async implementation of the <code>ICommand</code> interface. That way we can execute long-running tasks from our UI without blocking the UI.</p>
 </div>
 </div>
 </div>
@@ -2238,7 +2238,7 @@ from a fellow robot. We want a field to put in the robot&#8217;s name. Let&#8217
 <div class="sect2">
 <h3 id="_step_3_create_the_open_the_pod_bay_doors_command">Step 3: Create the "Open the POD bay doors" - Command</h3>
 <div class="paragraph">
-<p>In the <code>ViewModel`</code> add a new read-only property of type <code>ICommand</code>. We use the interface instead of the specialized class, because it is more flexible. For example You can easily replace it with an async implementation if you need to.</p>
+<p>In the <code>ViewModel`</code> add a new read-only property of type <code>ICommand</code>. We use the interface instead of the specialized class because it is more flexible. For example, You can easily replace it with an async implementation if you need to.</p>
 </div>
 <div class="listingblock">
 <div class="title">ReactiveUiCommandsViewModel.cs</div>
@@ -2268,7 +2268,7 @@ This is a famous line from the movie.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Last but not least we need to initialize our <code>Command</code> before we can use it. We will do this in our <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors"><code>[Constructor]</code></a> as shown below. We create our Commands using <a href="https://www.reactiveui.net/docs/handbook/commands/"><code>[ReactiveCommand.Create())]</code></a> method which will take a method or a lambda as parameter.</p>
+<p>Last but not least we need to initialize our <code>Command</code> before we can use it. We will do this in our <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors"><code>[Constructor]</code></a> as shown below. We create our Commands using <a href="https://www.reactiveui.net/docs/handbook/commands/"><code>[ReactiveCommand.Create()]</code></a> method which will take a method or a lambda as a parameter.</p>
 </div>
 <div class="listingblock">
 <div class="title">ReactiveUiCommandsViewModel.cs</div>
@@ -2358,8 +2358,8 @@ This time we used <code>ReactiveCommand.Create&lt;string?&gt;</code>. the part b
 <div class="sect2">
 <h3 id="_step_5_create_open_the_pod_bay_sequence_async_command">Step 5: Create "Open the Pod Bay sequence" - Async Command</h3>
 <div class="paragraph">
-<p>Many operations have multiple steps and we want to keep the user interface responsive while
-we wait for sequence of operations to complete. One way to do this in <code>C#</code> is to use <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">[<code>async / await</code>]</a> in combination with <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task?view=net-6.0">[<code>Tasks</code>]</a> to run things in the background while not blocking the UI.</p>
+<p>Many operations have multiple steps, and we want to keep the user interface responsive while
+we wait for the sequence of operations to complete. One way to do this in <code>C#</code> is to use <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">[<code>async / await</code>]</a> in combination with <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task?view=net-6.0">[<code>Tasks</code>]</a> to run things in the background while not blocking the UI.</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s add the <code>Command</code> and the <code>Task</code> to our <code>ViewModel</code>:</p>
@@ -2408,7 +2408,7 @@ we wait for sequence of operations to complete. One way to do this in <code>C#</
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-When you execute this command, notice that the <code>Button</code> is disabled until the <code>Task</code> is finished, so you can&#8217;t ask for the pod bay doors to open again while the opening sequence is running. A more complete program could keep track of the state of the Pod Bay and change the button to "close".
+When you execute this command, notice that the <code>Button</code> is disabled until the <code>Task</code> is finished, so you can&#8217;t ask for the pod bay doors to open again while the opening sequence is running. A more complete program could keep track of the Pod Bay&#8217;s status and change the button to "close".
 </td>
 </tr>
 </table>
@@ -2440,7 +2440,7 @@ When you execute this command, notice that the <code>Button</code> is disabled u
 <span class="c">&lt;!-- We use CommandParameter to provide the name of the robot --&gt;</span>
 <span class="c">&lt;!-- Note that the button is automatically disabled if we don't enter a name--&gt;</span>
 <span class="nt">&lt;StackPanel</span> <span class="na">Orientation=</span><span class="s">"Horizontal"</span> <span class="na">Spacing=</span><span class="s">"5"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;TextBox</span> <span class="na">Text=</span><span class="s">"{Binding RobotName}"</span> <span class="na">Watermark=</span><span class="s">"Robot Name"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;TextBox</span> <span class="na">Text=</span><span class="s">"{Binding RobotName}"</span> <span class="na">PlaceholderText=</span><span class="s">"Robot Name"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;Button</span> <span class="na">Command=</span><span class="s">"{Binding OpenThePodBayDoorsFellowRobotCommand}"</span>
             <span class="na">Content=</span><span class="s">"{Binding RobotName, StringFormat='Open the Pod Bay for {0}'}"</span>
             <span class="na">CommandParameter=</span><span class="s">"{Binding RobotName}"</span> <span class="nt">/&gt;</span>
@@ -2511,7 +2511,7 @@ When you execute this command, notice that the <code>Button</code> is disabled u
             <span class="c">&lt;!-- We use CommandParameter to provide the name of the robot --&gt;</span>
             <span class="c">&lt;!-- Note that the button is automatically disabled if we don't enter a name--&gt;</span>
             <span class="nt">&lt;StackPanel</span> <span class="na">Orientation=</span><span class="s">"Horizontal"</span> <span class="na">Spacing=</span><span class="s">"5"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;TextBox</span> <span class="na">Text=</span><span class="s">"{Binding RobotName}"</span> <span class="na">Watermark=</span><span class="s">"Robot Name"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;TextBox</span> <span class="na">Text=</span><span class="s">"{Binding RobotName}"</span> <span class="na">PlaceholderText=</span><span class="s">"Robot Name"</span> <span class="nt">/&gt;</span>
                 <span class="nt">&lt;Button</span> <span class="na">Command=</span><span class="s">"{Binding OpenThePodBayDoorsFellowRobotCommand}"</span>
                         <span class="na">Content=</span><span class="s">"{Binding RobotName, StringFormat='Open the Pod Bay for {0}'}"</span>
                         <span class="na">CommandParameter=</span><span class="s">"{Binding RobotName}"</span> <span class="nt">/&gt;</span>
@@ -2885,7 +2885,7 @@ When you execute this command, notice that the <code>Button</code> is disabled u
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://prismlibrary.com/docs/commands/commanding.html">[DelegateCommand]</a> from <code>Prism Library</code></p>
+<p><a href="https://prismlibrary.com/docs/commands/commanding">[DelegateCommand]</a> from <code>Prism Library</code></p>
 </li>
 <li>
 <p><a href="https://docs.avaloniaui.net/docs/guides/data-binding/how-to-bind-to-a-command-without-reactiveui">[Avalonia can bind to methods]</a></p>
@@ -2897,7 +2897,7 @@ When you execute this command, notice that the <code>Button</code> is disabled u
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-02-26 19:52:04 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>

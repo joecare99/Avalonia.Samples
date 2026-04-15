@@ -2049,7 +2049,7 @@ pre.rouge .gs {
 <li><a href="#_step_3_create_your_pageviewmodels">Step 3: Create your PageViewModels</a></li>
 <li><a href="#_step_4_create_the_page_views">Step 4: Create the Page-Views</a></li>
 <li><a href="#_step_5_prepare_the_mainwindowviewmodel">Step 5: Prepare the MainWindowViewModel</a></li>
-<li><a href="#_step_6_setup_the_mainwindow">Step 6: Setup the MainWindow</a></li>
+<li><a href="#_step_6_set_up_the_mainwindow">Step 6: Set up the MainWindow</a></li>
 <li><a href="#_step_6_see_it_in_action">Step 6: See it in action</a></li>
 </ul>
 </li>
@@ -2088,16 +2088,16 @@ pre.rouge .gs {
 <p>A <code>ViewLocator</code> is a class that helps your App to select the correct visual representation of a given <code>ViewModel</code>. In Avalonia this class normally implements the <code>IDataTemplate</code>-interface, so it can be seen as a <a href="https://github.com/AvaloniaUI/Avalonia.Samples/tree/main/src/Avalonia.Samples/DataTemplates/IDataTemplateSample">[custom <code>DataTemplate</code>]</a>.</p>
 </div>
 <div class="paragraph">
-<p>We can add a class called <code>ViewLocator</code> which can be used to create a new instance of a view for the given data object. In this sample we are using reflection to get the needed views. You can also use different approaches such as a <code>switch</code>-statement or a source generator.</p>
+<p>We can add a class called <code>ViewLocator</code> which can be used to create a new instance of a view for the given data object. In this sample we are using reflection to get the necessary views. You can also use different approaches such as a <code>switch</code>-statement or a source generator.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you have created your projects using the Avalonia version 0.10.x, you might have already noticed that a file called <code>ViewLocator.cs</code> was created. In Avalonia 11.0 or later you need to implement this class on your own if needed.
+If you create the project using the IDE of your choice, you can opt to create a <code>ViewLocator</code> class. If you didn&#8217;t do it, just create a new class called <code>ViewLocator</code> in the root of your project and add the following code to it:
 </td>
 </tr>
 </table>
@@ -2152,7 +2152,7 @@ If you have created your projects using the Avalonia version 0.10.x, you might h
 </dd>
 <dt class="hdlist1">Control Build(object? data)</dt>
 <dd>
-<p>This function uses <a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection">[<code>Reflection</code>]</a> to create a new instance of the <code>View</code> representing the given <code>ViewModel</code>. First of all the full name of the ViewModel is extracted, for example:</p>
+<p>This function uses <a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection">[<code>Reflection</code>]</a> to create a new instance of the <code>View</code> representing the given <code>ViewModel</code>. First, the full name of the ViewModel is extracted, for example:</p>
 <div class="paragraph">
 <p><code>MyAppsNameSpace.ViewModels.MyViewModel</code></p>
 </div>
@@ -2163,7 +2163,7 @@ If you have created your projects using the Avalonia version 0.10.x, you might h
 <p><code>MyAppsNameSpace.Views.MyView</code></p>
 </div>
 <div class="paragraph">
-<p>In the next step the <code>ViewLocator</code> tries to get a <code>Type</code> of object with the given name. If it finds such a <code>Type</code>, it will create and return a new instance of the given <code>Type</code>. If it didn&#8217;t find a matching <code>Type</code>, it returns a <code>TextBlock</code> with a not found message.</p>
+<p>In the next step the <code>ViewLocator</code> tries to get a <code>Type</code> of an object with the given name. If it finds such a <code>Type</code>, it will create and return a new instance of the given <code>Type</code>. If it didn&#8217;t find a matching <code>Type</code>, it returns a <code>TextBlock</code> with a not found message.</p>
 </div>
 </dd>
 </dl>
@@ -2175,7 +2175,19 @@ If you have created your projects using the Avalonia version 0.10.x, you might h
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-By convention the <code>ViewModel</code> must be within the <code>ViewModels</code>-folder and have "ViewModel" inside it&#8217;s name. The <code>View</code> on the other hand must be in the <code>Views</code>-folder and have <code>View</code> in it&#8217;s name. If you don&#8217;t like this convention, feel free to change it to your needs.
+By convention the <code>ViewModel</code> must be within the <code>ViewModels</code>-folder and have "ViewModel" inside its name. The <code>View</code> on the other hand must be in the <code>Views</code>-folder and have <code>View</code> in its name. If you don&#8217;t like this convention, feel free to change it to your needs.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can also use a <code>switch</code>-statement, a <code>Dictionary</code> or a source generator instead of reflection. Reflection is not the most performant way to get the correct view, but it is the most flexible one as you don&#8217;t need to change your <code>ViewLocator</code> if you add new pages.
 </td>
 </tr>
 </table>
@@ -2201,7 +2213,7 @@ By convention the <code>ViewModel</code> must be within the <code>ViewModels</co
 <div class="sect2">
 <h3 id="_can_i_have_more_than_one_viewlocator">Can I have more than one ViewLocator?</h3>
 <div class="paragraph">
-<p>Sometimes your <code>ViewModels</code> and <code>Views</code> may be stored in a shared library. If that is the case, you can add several <code>ViewLocator</code> classes. Just remember to initiate each one in <code>App.DataTemplates</code>.</p>
+<p>Sometimes your <code>ViewModels</code> and <code>Views</code> may be stored in a shared library. If that is the case, you can add several <code>ViewLocator</code> classes. Remember to initiate each one in <code>App.DataTemplates</code>.</p>
 </div>
 </div>
 </div>
@@ -2221,7 +2233,7 @@ By convention the <code>ViewModel</code> must be within the <code>ViewModels</co
 <div class="sect2">
 <h3 id="base-class">Step 2: Add a base class for the Page-ViewModels</h3>
 <div class="paragraph">
-<p>We want to allow or disallow navigation based on the state of the current user input. For example, the user should not be able to go to the next page until all required fields are filled successfully. To achieve this we can either create a new <code>base-class</code> or an <code>interface</code>. In this sample we will create an <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract">[<code>abstract</code>]</a> <code>base-class</code> which itself derives from <code>ViewModelBase</code>. The properties itself are also marked as <code>abstract</code> which means we have to override them in any <code>class</code> that inherits our <code>base-class</code>.</p>
+<p>We want to allow or disallow navigation based on the state of the current user input. For example, the user should not be able to go to the next page until all required fields are filled successfully. To achieve this, we can either create a new <code>base-class</code> or an <code>interface</code>. In this sample we will create an <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract">[<code>abstract</code>]</a> <code>base-class</code> which itself derives from <code>ViewModelBase</code>. The properties itself are also marked as <code>abstract</code> which means we have to override them in any <code>class</code> that inherits our <code>base-class</code>.</p>
 </div>
 <div class="paragraph">
 <p>In the folder <code>ViewModels</code> create the file <code>PageViewModelBase.cs</code>:</p>
@@ -2252,7 +2264,7 @@ By convention the <code>ViewModel</code> must be within the <code>ViewModels</co
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-the <code>protected</code>-modifier let&#8217;s us implement a setter that is not public accessible, but can be overridden in derived classes. <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/protected">[Microsoft Docs]</a>
+the <code>protected</code>-modifier lets us implement a setter that is not publicly accessible, but can be overridden in derived classes. <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/protected">[Microsoft Docs]</a>
 </td>
 </tr>
 </table>
@@ -2261,7 +2273,7 @@ the <code>protected</code>-modifier let&#8217;s us implement a setter that is no
 <div class="sect2">
 <h3 id="_step_3_create_your_pageviewmodels">Step 3: Create your PageViewModels</h3>
 <div class="paragraph">
-<p>Let&#8217;s create a <code>ViewModel</code> for each Wizard page we need. Each <code>PageViewModel</code> must implement the above created <a href="#base-class">base-class</a>.</p>
+<p>Let&#8217;s create a <code>ViewModel</code> for each Wizard page we need. Each <code>PageViewModel</code> must implement the earlier introduced <a href="#base-class">base-class</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2278,7 +2290,7 @@ You need to <code>override</code> all the <code>abstract</code> properties of ou
 <div class="sect3">
 <h4 id="_firstpageviewmodel">FirstPageViewModel</h4>
 <div class="paragraph">
-<p>The fist page will be our welcome page. It has a <code>Title</code> and a <code>Message</code>. The user can go to the next page in any case, but there is no page to go back to. So we don&#8217;t need to implement the <code>setter</code>. To indicate that we throw a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.notsupportedexception">[<code>NotSupportedException</code>]</a>.</p>
+<p>The first page will be our welcome page. It has a <code>Title</code> and a <code>Message</code>. The user can go to the next page in any case, but there is no page to go back to. So we don&#8217;t need to implement the <code>setter</code>. To indicate that we throw a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.notsupportedexception">[<code>NotSupportedException</code>]</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2317,7 +2329,7 @@ You need to <code>override</code> all the <code>abstract</code> properties of ou
 <div class="sect3">
 <h4 id="_secondpageviewmodel">SecondPageViewModel</h4>
 <div class="paragraph">
-<p>This page will have two input fields called <code>MailAddress</code> and <code>Password</code>. Inside the constructor of this class we will listen to changes of these properties and set <code>CanNavigateNext</code> to <code>true</code> if both properties matches the requirements.</p>
+<p>This page will have two input fields called <code>MailAddress</code> and <code>Password</code>. Inside the constructor of this class we will listen to changes of these properties and set <code>CanNavigateNext</code> to <code>true</code> if both properties match the requirements.</p>
 </div>
 <div class="paragraph">
 <p>The requirements are:
@@ -2398,7 +2410,32 @@ You need to <code>override</code> all the <code>abstract</code> properties of ou
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-We use <code>DataAnnotations</code> to validate the user input inside the UI. This is totally optional. You can read more about in the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validationattribute">[Microsoft Docs]</a>.
+We use <code>DataAnnotations</code> to validate the user input inside the UI. This is totally optional. You can read more about it in the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validationattribute">[Microsoft Docs]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Using Avalonia 12.0 or higher, you need to opt in for <code>DataAnnotations</code> by adding the following line to your <code>Program.cs</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="diff"><span class="p">public static AppBuilder BuildAvaloniaApp()
+</span>    =&gt; AppBuilder.Configure&lt;App&gt;()
+        .UsePlatformDetect()
+        .LogToTrace()
+        .WithDeveloperTools()
+<span class="gi">+       .WithDataAnnotationsValidation() // This is needed to use the validation using Attributes in the ViewModel
+</span>        .UseReactiveUI(builder =&gt; { /* We don't need to configure anything for the samples */ });</code></pre>
+</div>
+</div>
 </td>
 </tr>
 </table>
@@ -2440,7 +2477,7 @@ We use <code>DataAnnotations</code> to validate the user input inside the UI. Th
 <div class="sect2">
 <h3 id="_step_4_create_the_page_views">Step 4: Create the Page-Views</h3>
 <div class="paragraph">
-<p>Now we will create an <a href="https://docs.avaloniaui.net/docs/controls/usercontrol">[<code>UserControl</code>]</a> for each page.</p>
+<p>Now we will create a <a href="https://docs.avaloniaui.net/docs/reference/controls/usercontrol">[<code>UserControl</code>]</a> for each page.</p>
 </div>
 <div class="sect3">
 <h4 id="_firstpageview">FirstPageView</h4>
@@ -2525,14 +2562,14 @@ If you set any <code>PasswordChar</code> to any <code>TextBox</code> you will ge
         <span class="nt">&lt;TextBox</span> <span class="na">VerticalAlignment=</span><span class="s">"Center"</span>
                  <span class="na">FontSize=</span><span class="s">"16"</span>
                  <span class="na">Text=</span><span class="s">"{Binding MailAddress}"</span>
-                 <span class="na">Watermark=</span><span class="s">"E-Mail Address"</span>
-				 <span class="na">UseFloatingWatermark=</span><span class="s">"True"</span><span class="nt">/&gt;</span>
+                 <span class="na">PlaceholderText=</span><span class="s">"E-Mail Address"</span>
+				 <span class="na">UseFloatingPlaceholder=</span><span class="s">"True"</span><span class="nt">/&gt;</span>
 		<span class="nt">&lt;TextBox</span> <span class="na">VerticalAlignment=</span><span class="s">"Center"</span>
                  <span class="na">FontSize=</span><span class="s">"16"</span>
 				 <span class="na">PasswordChar=</span><span class="s">"$"</span>
                  <span class="na">Text=</span><span class="s">"{Binding Password}"</span>
-                 <span class="na">Watermark=</span><span class="s">"Password"</span>
-				 <span class="na">UseFloatingWatermark=</span><span class="s">"True"</span><span class="nt">/&gt;</span>
+                 <span class="na">PlaceholderText=</span><span class="s">"Password"</span>
+				 <span class="na">UseFloatingPlaceholder=</span><span class="s">"True"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/StackPanel&gt;</span>
 <span class="nt">&lt;/UserControl&gt;</span></code></pre>
 </div>
@@ -2548,7 +2585,7 @@ If you set any <code>PasswordChar</code> to any <code>TextBox</code> you will ge
 <div class="sect2">
 <h3 id="_step_5_prepare_the_mainwindowviewmodel">Step 5: Prepare the MainWindowViewModel</h3>
 <div class="paragraph">
-<p>Now we need create the navigation logic inside the file <code>ViewModels ► MainWindowViewModel.cs</code>. We will add four things:</p>
+<p>Now we need to create the navigation logic inside the file <code>ViewModels ► MainWindowViewModel.cs</code>. We will add four things:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -2571,7 +2608,7 @@ If you set any <code>PasswordChar</code> to any <code>TextBox</code> you will ge
 </dl>
 </div>
 <div class="paragraph">
-<p>As you will see in the constructor we will use <code>WhenAnyValue</code> to activate or deactivate the <code>Commands</code>, depending if the <code>CurrentPage</code> can navigate in the considered direction.</p>
+<p>As you will see in the constructor we will use <code>WhenAnyValue</code> to activate or deactivate the <code>Commands</code>, depending on if the <code>CurrentPage</code> can navigate in the considered direction.</p>
 </div>
 <div class="paragraph">
 <p>Putting all together, the <code>MainWindowViewModel</code> looks now like this:</p>
@@ -2645,9 +2682,9 @@ If you set any <code>PasswordChar</code> to any <code>TextBox</code> you will ge
 </div>
 </div>
 <div class="sect2">
-<h3 id="_step_6_setup_the_mainwindow">Step 6: Setup the MainWindow</h3>
+<h3 id="_step_6_set_up_the_mainwindow">Step 6: Set up the MainWindow</h3>
 <div class="paragraph">
-<p>Now it&#8217;s time to setup the file <code>Views ► MainWindow.axaml</code>. We will add <code>Grid</code> containing two <code>Buttons</code> as well as a <a href="https://docs.avaloniaui.net/docs/controls/transitioningcontentcontrol">[<code>TransitioningContentControl</code>]</a>.</p>
+<p>Now it&#8217;s time to set up the file <code>Views ► MainWindow.axaml</code>. We will add <code>Grid</code> containing two <code>Buttons</code> as well as a <a href="https://docs.avaloniaui.net/docs/reference/controls/transitioningcontentcontrol">[<code>TransitioningContentControl</code>]</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2714,7 +2751,7 @@ You can use also any other <code>ContentControl</code>, but the <code>Transition
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Do you see the content of the last page? This happens because we didn&#8217;t define a <code>View</code> for it and also we didn&#8217;t define any <code>DataTemplate</code> for it.
+Do you see the content of the last page? This happens because we didn&#8217;t define a <code>View</code> for it, and also we didn&#8217;t define any <code>DataTemplate</code> for it.
 </td>
 </tr>
 </table>
@@ -2726,7 +2763,7 @@ Do you see the content of the last page? This happens because we didn&#8217;t de
 <h2 id="_related">Related</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can also use any third-party library which supports advanced routing, for example:</p>
+<p>You can also use any third-party library that supports advanced routing, for example:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -2737,9 +2774,6 @@ Do you see the content of the last page? This happens because we didn&#8217;t de
 <li>
 <p><a href="https://www.reactiveui.net/docs/handbook/routing/" class="bare">https://www.reactiveui.net/docs/handbook/routing/</a></p>
 </li>
-<li>
-<p><a href="https://docs.avaloniaui.net/guides/deep-dives/reactiveui/routing" class="bare">https://docs.avaloniaui.net/guides/deep-dives/reactiveui/routing</a></p>
-</li>
 </ul>
 </div>
 </dd>
@@ -2748,10 +2782,10 @@ Do you see the content of the last page? This happens because we didn&#8217;t de
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://prismlibrary.com/docs/viewmodel-locator.html" class="bare">https://prismlibrary.com/docs/viewmodel-locator.html</a></p>
+<p><a href="https://prismlibrary.com/docs/viewmodel-locator" class="bare">https://prismlibrary.com/docs/viewmodel-locator</a></p>
 </li>
 <li>
-<p><a href="https://docs.avaloniaui.net/guides/deep-dives/reactiveui/routing" class="bare">https://docs.avaloniaui.net/guides/deep-dives/reactiveui/routing</a></p>
+<p><a href="https://www.reactiveui.net/docs/handbook/routing/" class="bare">https://www.reactiveui.net/docs/handbook/routing/</a></p>
 </li>
 </ul>
 </div>
@@ -2763,7 +2797,7 @@ Do you see the content of the last page? This happens because we didn&#8217;t de
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-11-06 19:42:36 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>

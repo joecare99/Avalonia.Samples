@@ -2091,13 +2091,13 @@ pre.rouge .gs {
 <div class="sect2">
 <h3 id="_prepare_your_ide">Prepare your IDE</h3>
 <div class="paragraph">
-<p>Please make sure you have setup your IDE according to the [<a href="https://docs.avaloniaui.net/docs/get-started/set-up-an-editor" target="_blank" rel="noopener">docs</a>]. Moreover you should have read the [<a href="https://docs.avaloniaui.net/docs/welcome" target="_blank" rel="noopener">Getting Started guide</a>].</p>
+<p>Please make sure you have set up your IDE according to the <a href="https://docs.avaloniaui.net/docs/get-started/set-up-an-editor" target="_blank" rel="noopener">[docs]</a>. Moreover, you should have read the <a href="https://docs.avaloniaui.net/docs/welcome" target="_blank" rel="noopener">[Getting Started guide]</a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_the_mvvm_pattern_in_short">The MVVM Pattern in short</h3>
 <div class="paragraph">
-<p>We will use the <code>MVVM</code>-pattern in this sample. <code>MVVM</code> is short for <strong>M</strong>odel - <strong>V</strong>iew - <strong>V</strong>iew<strong>M</strong>odel and describes a software architectural pattern that will split the code base into three pieces:.</p>
+<p>We will use the <code>MVVM</code>-pattern in this sample. <code>MVVM</code> is short for <strong>M</strong>odel - <strong>V</strong>iew - <strong>V</strong>iew<strong>M</strong>odel and describes a software architectural pattern that will split the code base into three pieces:</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -2129,9 +2129,6 @@ pre.rouge .gs {
 </li>
 <li>
 <p><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel" target="_blank" rel="noopener">[Wikipedia]</a></p>
-</li>
-<li>
-<p><a href="https://www.codeproject.com/Articles/278901/MVVM-Pattern-Made-Simple" target="_blank" rel="noopener">[CodeProject]</a></p>
 </li>
 <li>
 <p><a href="https://www.tutorialspoint.com/mvvm/index.htm" target="_blank" rel="noopener">[tutorialspoint]</a></p>
@@ -2179,10 +2176,10 @@ pre.rouge .gs {
 <div class="sect2">
 <h3 id="_bindings">Bindings</h3>
 <div class="paragraph">
-<p>Avalonia uses <code>Controls</code> to represent functional components of a GUI Layout.  Example <code>Controls</code> include <a href="https://docs.avaloniaui.net/docs/reference/controls/scrollbar">[<code>ScrollBar</code>]</a>, [<a href="https://docs.avaloniaui.net/docs/reference/controls/buttons/button" target="_blank" rel="noopener">[<code>Button</code></a>], and [<a href="https://docs.avaloniaui.net/docs/reference/controls/detailed-reference/textbox" target="_blank" rel="noopener"><code>TextBox</code></a>]. <code>Properties</code> (like the <code>Text</code>-property of a <code>TextBox</code>) describe and allow interaction with the <code>Controls</code>.</p>
+<p>Avalonia uses <code>Controls</code> to represent functional components of a GUI Layout.  Example <code>Controls</code> include <a href="https://docs.avaloniaui.net/docs/reference/controls/scrollbar">[<code>ScrollBar</code>]</a>, <a href="https://docs.avaloniaui.net/docs/reference/controls/buttons/button" target="_blank" rel="noopener">[<code>Button</code>]</a>, and <a href="https://docs.avaloniaui.net/docs/reference/controls/detailed-reference/textbox" target="_blank" rel="noopener">[<code>TextBox</code>]</a>. <code>Properties</code> (like the <code>Text</code>-property of a <code>TextBox</code>) describe and allow interaction with the <code>Controls</code>.</p>
 </div>
 <div class="paragraph">
-<p>We need a way to connect the <code>Properties</code> of our controls with the <code>Properties</code> in our <code>ViewModel</code>. Luckily we have  [<a href="https://docs.avaloniaui.net/docs/basics/data/data-binding/" target="_blank" rel="noopener"><code>Bindings</code></a>] which will do this for us. The <code>Binding</code> will update the <code>View</code> whenever the <code>ViewModel</code> reports changes and will also update the <code>ViewModel</code> whenever the user interacts with the <code>View</code>.</p>
+<p>We need a way to connect the <code>Properties</code> of our controls with the <code>Properties</code> in our <code>ViewModel</code>. Luckily, we have  <a href="https://docs.avaloniaui.net/docs/basics/data/data-binding/" target="_blank" rel="noopener">[<code>Bindings</code>]</a> which will do this for us. The <code>Binding</code> will update the <code>View</code> whenever the <code>ViewModel</code> reports changes and will also update the <code>ViewModel</code> whenever the user interacts with the <code>View</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2254,7 +2251,7 @@ cd BasicMvvmSample</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For convenience we will now add a method to our class, which will raise the event for us. We need to provide the name of the property which has changed. If we add <code>[CallerMemberName]</code> to the method argument, the compiler will add the property name for us. Add the <code>using</code> statement to the top of <code>SimpleViewModel.cs</code> and the method inside the <code>SimpleViewModel</code> class.</p>
+<p>For convenience, we will now add a method to our class, which will raise the event for us. We need to provide the name of the property which has changed. If we add <code>[CallerMemberName]</code> to the method argument, the compiler will add the property name for us. Add the <code>using</code> statement to the top of <code>SimpleViewModel.cs</code> and the method inside the <code>SimpleViewModel</code> class.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2386,7 +2383,7 @@ Note that the lines <code>x:CompileBindings="True"</code> and <code>x:DataType="
 <div class="sect3">
 <h4 id="_add_the_content_to_mainwindow">Add the Content to MainWindow</h4>
 <div class="paragraph">
-<p>Our <code>View</code> will be built using two [<a href="https://docs.avaloniaui.net/docs/controls/textbox" target="_blank" rel="noopener"><code>TextBoxes</code></a>]: one for the user to enter their name and another one to present the greeting. As a <code>Window</code> can only have one child, we need to wrap our controls in a [<a href="https://docs.avaloniaui.net/docs/layout" target="_blank" rel="noopener"><code>Panel</code></a>]. We will choose a [<a href="https://docs.avaloniaui.net/docs/controls/stackpanel" target="_blank" rel="noopener"><code>StackPanel</code></a>], but you can use any other <code>Panel</code> variant to give you greater control over the layout.</p>
+<p>Our <code>View</code> will be built using two [<a href="https://docs.avaloniaui.net/docs/reference/controls/detailed-reference/textbox" target="_blank" rel="noopener"><code>TextBoxes</code></a>]: one for the user to enter their name and another one to present the greeting. As a <code>Window</code> can only have one child, we need to wrap our controls in a [<a href="https://docs.avaloniaui.net/docs/layout" target="_blank" rel="noopener"><code>Panel</code></a>]. We will choose a [<a href="https://docs.avaloniaui.net/docs/reference/controls/stackpanel" target="_blank" rel="noopener"><code>StackPanel</code></a>], but you can use any other <code>Panel</code> variant to give you greater control over the layout.</p>
 </div>
 <div class="paragraph">
 <p>The <code>StackPanel&#8217;s `DataContext</code> will [<a href="https://docs.avaloniaui.net/docs/data-binding/bindings" target="_blank" rel="noopener">bind</a>] to our <code>SimpleViewModel</code>. As the <code>DataContext</code> is inherited from the parent control, our <code>TextBoxes</code> will have the same <code>DataContext</code>. Therefore we can just bind <code>TextBox.Text</code> to <code>Name</code> and <code>Greeting</code> respectively.  The complete <code>MainWindow.axaml</code> code is shown below:</p>
@@ -2623,7 +2620,7 @@ Note that the lines <code>x:CompileBindings="True"</code> and <code>x:DataType="
 <p><a href="https://docs.microsoft.com/en-us/windows/communitytoolkit/mvvm/introduction" target="_blank" rel="noopener">[CommunityToolkit.MVVM]</a></p>
 </li>
 <li>
-<p><a href="https://docs.prismlibrary.com/docs/" target="_blank" rel="noopener">[Prism]</a></p>
+<p><a href="https://prismlibrary.com/docs/" target="_blank" rel="noopener">[Prism]</a></p>
 </li>
 <li>
 <p><a href="https://caliburnmicro.com"" target="_blank" rel="noopener">[Caliburn Micro]</a></p>
@@ -2659,7 +2656,7 @@ Note that the lines <code>x:CompileBindings="True"</code> and <code>x:DataType="
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-11-06 19:42:36 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>

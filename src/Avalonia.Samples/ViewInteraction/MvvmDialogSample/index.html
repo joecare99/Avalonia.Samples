@@ -2038,7 +2038,7 @@ pre.rouge .gs {
 <li><a href="#_before_we_start">Before we start</a></li>
 <li><a href="#_solution_1_use_reactiveui_interactions">Solution 1 : Use ReactiveUI-Interactions</a>
 <ul class="sectlevel2">
-<li><a href="#_step_1_setup_the_viewmodel">Step 1: Setup the ViewModel</a></li>
+<li><a href="#_step_1_set_up_the_viewmodel">Step 1: Set up the ViewModel</a></li>
 <li><a href="#_step_2_prepare_the_view">Step 2: Prepare the View</a></li>
 <li><a href="#_step_3_see_it_in_action">Step 3: See it in action</a></li>
 </ul>
@@ -2059,7 +2059,7 @@ pre.rouge .gs {
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This example will show you how to use <code>Interactions</code> to show <a href="https://docs.avaloniaui.net/docs/next/basics/user-interface/file-dialogs">[dialogs]</a> in your MVVM application</p>
+<p>This example will show you how to use <code>Interactions</code> to show <a href="https://docs.avaloniaui.net/docs/basics/user-interface/file-dialogs">[dialogs]</a> in your MVVM application</p>
 </div>
 <!-- toc disabled -->
 <h3 id="_difficulty" class="discrete">Difficulty</h3>
@@ -2076,7 +2076,7 @@ pre.rouge .gs {
 <h2 id="_before_we_start">Before we start</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We assume you already now how the MVVM pattern works and how dialogs, such as file dialogs, can be shown in general. You should also know what a <a href="https://docs.avaloniaui.net/docs/next/concepts/toplevel">[TopLevel]</a>-control in Avalonia is and what it can be used for.</p>
+<p>We assume you already know how the MVVM pattern works and how dialogs, such as file dialogs, can be shown in general. You should also know what a <a href="https://docs.avaloniaui.net/docs/concepts/toplevel">[TopLevel]</a>-control in Avalonia is and what it can be used for.</p>
 </div>
 </div>
 </div>
@@ -2096,12 +2096,12 @@ Solution 1 requires the use of Avalonia 11.2.0 or higher due to a breaking chang
 </table>
 </div>
 <div class="paragraph">
-<p>In this section you will learn how to use Reactive UI <a href="https://www.reactiveui.net/docs/handbook/interactions/">[<code>Interactions</code>]</a> in order to interact with your <code>View</code>.</p>
+<p>In this section you will learn how to use Reactive UI <a href="https://www.reactiveui.net/docs/handbook/interactions/">[<code>Interactions</code>]</a> to interact with your <code>View</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="_step_1_setup_the_viewmodel">Step 1: Setup the ViewModel</h3>
+<h3 id="_step_1_set_up_the_viewmodel">Step 1: Set up the ViewModel</h3>
 <div class="paragraph">
-<p>In our ViewModel we add a property for the <code>Interaction</code> which we can use later to interact with the <code>View</code>, for example inside a <code>Command</code>:</p>
+<p>In our ViewModel we add a property for the <code>Interaction</code> which we can use later to interact with the <code>View</code>, for example, inside a <code>Command</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2125,7 +2125,7 @@ Solution 1 requires the use of Avalonia 11.2.0 or higher due to a breaking chang
 <div class="sect2">
 <h3 id="_step_2_prepare_the_view">Step 2: Prepare the View</h3>
 <div class="paragraph">
-<p>We add a <code>ReactiveUserControl</code> as your view. This control gives us the ability to register a handler for our interactions. Let&#8217;s add this handler in the UserControls code behind:</p>
+<p>We add a <code>ReactiveUserControl</code> as your view. This control allows us to register a handler for our interactions. Let&#8217;s add this handler in the UserControls code behind:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2153,13 +2153,13 @@ Solution 1 requires the use of Avalonia 11.2.0 or higher due to a breaking chang
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We are using an async Task to not block the UI. As parameter we need to pass an <code>IInteractionContext</code> which has one generic parameter for the input (in our case a string for the dialog title) and one for the output (in our case an array of selected files).
+We are using an async Task to not block the UI. As parameter, we need to pass an <code>IInteractionContext</code> which has one generic parameter for the input (in our case a string for the dialog title) and one for the output (in our case an array of selected files).
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In the constructor of our <code>ReactiveUserControl</code> we need to setup the interaction inside <code>this.WhenActivated</code> like shown below:</p>
+<p>In the constructor of our <code>ReactiveUserControl</code> we need to set up the interaction inside <code>this.WhenActivated</code> like shown below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2175,7 +2175,7 @@ We are using an async Task to not block the UI. As parameter we need to pass an 
 </div>
 </div>
 <div class="paragraph">
-<p>Now we can setup the <code>XAML</code> as following. Mind the binding of the <code>Button</code> to our <code>Command</code> in the <code>ViewModel</code>:</p>
+<p>Now we can set up the <code>XAML</code> as following. Mind the binding of the <code>Button</code> to our <code>Command</code> in the <code>ViewModel</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2201,7 +2201,7 @@ We are using an async Task to not block the UI. As parameter we need to pass an 
 <div class="sect2">
 <h3 id="_step_3_see_it_in_action">Step 3: See it in action</h3>
 <div class="paragraph">
-<p>Running the App you should be able to select any files on your system.</p>
+<p>Running the App, you should be able to select any files on your system.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2215,7 +2215,7 @@ We are using an async Task to not block the UI. As parameter we need to pass an 
 <h2 id="_solution_2_write_your_own_interaction_class">Solution 2 : Write your own Interaction-class</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you don&#8217;t want to use Reactive-UI you can also write your own <code>Interaction</code>-class to provide a similar functionality. In this section you will see one possible solution.</p>
+<p>If you don&#8217;t want to use Reactive-UI, you can also write your own <code>Interaction</code>-class to provide a similar functionality. In this section you will see one possible solution.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2265,13 +2265,13 @@ We are going to use the <a href="https://learn.microsoft.com/en-us/dotnet/commun
 </dl>
 </div>
 <div class="paragraph">
-<p>In addition we will add two methods:</p>
+<p>In addition, we will add two methods:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">IDisposable RegisterHandler(Func&lt;TInput, Task&lt;TOutput&gt;&gt; handler)</dt>
 <dd>
-<p>This method will be used by the View to register the action to be performed.</p>
+<p>The View will use this method to register the action to be performed.</p>
 </dd>
 <dt class="hdlist1">Task&lt;TOutput&gt; HandleAsync(TInput input)</dt>
 <dd>
@@ -2280,7 +2280,7 @@ We are going to use the <a href="https://learn.microsoft.com/en-us/dotnet/commun
 </dl>
 </div>
 <div class="paragraph">
-<p>And this is how the final class looks like:</p>
+<p>And this is what the final class looks like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2344,7 +2344,7 @@ We are going to use the <a href="https://learn.microsoft.com/en-us/dotnet/commun
 <div class="sect2">
 <h3 id="_step_2_prepare_the_viewmodel">Step 2: Prepare the ViewModel</h3>
 <div class="paragraph">
-<p>In our <code>CustomInteractionViewModel</code> we need to add a new instance of the <code>Interaction</code>. In our sample we want to provide a dialog title (<code>string</code>) as the input and we expect a list of selected files (<code>string[]?</code>)</p>
+<p>In our <code>CustomInteractionViewModel</code> we need to add a new instance of the <code>Interaction</code>. In our sample we want to provide a dialog title (<code>string</code>) as the input, and we expect a list of selected files (<code>string[]?</code>)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2355,7 +2355,7 @@ We are going to use the <a href="https://learn.microsoft.com/en-us/dotnet/commun
 </div>
 </div>
 <div class="paragraph">
-<p>In a next step we add a Command which will call the interaction:</p>
+<p>In the next step we add a Command which will call the interaction:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2370,7 +2370,7 @@ We are going to use the <a href="https://learn.microsoft.com/en-us/dotnet/commun
 <div class="sect2">
 <h3 id="_step_3_prepare_the_view">Step 3: Prepare the View</h3>
 <div class="paragraph">
-<p>Somehow we need to register the <code>View</code> to the <code>Interaction</code> of the <code>ViewModel</code>. In Avalonia we have an event called <code>OnDataContextChanged</code> which we can listen to, or, if we are in code behind, simply override it.</p>
+<p>Somehow we need to register the <code>View</code> to the <code>Interaction</code> of the <code>ViewModel</code>. In Avalonia we have an event called <code>OnDataContextChanged</code> which we can subscribe, or, if we are in code behind, simply override it.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2400,7 +2400,7 @@ We are going to use the <a href="https://learn.microsoft.com/en-us/dotnet/commun
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Remember that the DataContext can change several times. In order to not get any memory leak, we have to dispose any earlier registration to an older view model
+Remember that the DataContext can change several times. To not get any memory leak, we have to dispose any earlier registration to an older view model
 </td>
 </tr>
 </table>
@@ -2456,6 +2456,9 @@ Remember that the DataContext can change several times. In order to not get any 
 <li>
 <p><a href="https://github.com/AvaloniaCommunity/awesome-avalonia#mvvm&#8212;&#8203;mvp&#8212;&#8203;mvu">third party libs</a></p>
 </li>
+<li>
+<p>Use a messenger service like the <a href="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/messenger">CommunityToolkit.Mvvm.Messenger</a> (see this sample: <a href="../../CompleteApps/Avalonia.MusicStore/">MusicStore-sample</a>)</p>
+</li>
 </ul>
 </div>
 </div>
@@ -2463,7 +2466,7 @@ Remember that the DataContext can change several times. In order to not get any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-11-06 19:42:36 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>

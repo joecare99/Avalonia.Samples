@@ -2070,7 +2070,7 @@ pre.rouge .gs {
 <h2 id="_before_we_start">Before we start</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We assume you already now how the MVVM pattern works and how dialogs, such as file dialogs, can be shown in general. You should also know what a <a href="https://docs.avaloniaui.net/docs/next/concepts/toplevel">[TopLevel]</a>-control in Avalonia is and what it can be used for.</p>
+<p>We assume you already know how the MVVM pattern works and how dialogs, such as file dialogs, can be shown in general. You should also know what a <a href="https://docs.avaloniaui.net/docs/concepts/toplevel">[TopLevel]</a>-control in Avalonia is and what it can be used for.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2079,19 +2079,7 @@ pre.rouge .gs {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In this sample we will use the <a href="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/">[CommunityToolkit.MVVM]</a>-package which provides source generators for less boilerplate code. Please check out their docs if you want to learn more about this. (<a href="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/overview" class="bare">https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/overview</a>)
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-We use partial properties that were introduced in .NET 10. If you haven&#8217;t updated yet, you need to add <code>&lt;LangVersion&gt;preview&lt;/LangVersion&gt;</code> to a property group in your <code>.csproj</code> file.
+In this sample we will use the <a href="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/">[CommunityToolkit.MVVM]</a>-package, which provides source generators for less boilerplate code. Please check out their docs if you want to learn more about this. (<a href="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/overview" class="bare">https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/overview</a>)
 </td>
 </tr>
 </table>
@@ -2128,13 +2116,13 @@ We do not need to inherit <code>AvaloniaObject</code> even as we want to add <co
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Technically we can also map to <code>object</code> or any other base class, but since we later on want to use extension methods these will leak into any object. Having the interface introduce will only show the extension methods where they are useful.
+Technically we can also map to <code>object</code> or any other base class, but since we later on want to use extension methods, these will leak into any object. Having the interface introduced will only show the extension methods where they are useful.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Comming back to the DialogManager-class, let&#8217;s add a static <code>Dictionary</code> where we can store the registered mappings between the context (for example our <code>ViewModel</code>) and the <code>View</code> or <code>Control</code>, which we want to interact with.</p>
+<p>Coming back to the DialogManager-class, let&#8217;s add a static <code>Dictionary</code> where we can store the registered mappings between the context (for example: our <code>ViewModel</code>) and the <code>View</code> or <code>Control</code>, which we want to interact with.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2146,7 +2134,7 @@ Technically we can also map to <code>object</code> or any other base class, but 
 </div>
 </div>
 <div class="paragraph">
-<p>In the next step we add an <a href="https://docs.avaloniaui.net/docs/next/concepts/attached-property">[AttachedProperty</a>] to our dialog manager, which we call <code>Register</code>. Later we can bind any <code>IDialogParticipant</code> to this property from every available <code>Visual</code> in our <code>Views</code>.</p>
+<p>In the next step we add an <a href="https://docs.avaloniaui.net/docs/concepts/attached-property">[AttachedProperty</a>] to our dialog manager, which we call <code>Register</code>. Later we can bind any <code>IDialogParticipant</code> to this property from every available <code>Visual</code> in our <code>Views</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2193,16 +2181,41 @@ Technically we can also map to <code>object</code> or any other base class, but 
     <span class="c1">// Unregister any old registered context</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">GetOldValue</span><span class="p">&lt;</span><span class="n">IDialogParticipant</span><span class="p">&gt;()</span> <span class="k">is</span> <span class="p">{</span> <span class="p">}</span> <span class="n">oldValue</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">RegistrationMapper</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">oldValue</span><span class="p">);</span>
+        <span class="c1">// Remove only if the current mapping still points to this sender</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">RegistrationMapper</span><span class="p">.</span><span class="nf">TryGetValue</span><span class="p">(</span><span class="n">oldValue</span><span class="p">,</span> <span class="k">out</span> <span class="kt">var</span> <span class="n">currentSender</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">currentSender</span> <span class="p">==</span> <span class="n">sender</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">RegistrationMapper</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">oldValue</span><span class="p">);</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 
     <span class="c1">// Register any new context</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">GetNewValue</span><span class="p">&lt;</span><span class="n">IDialogParticipant</span><span class="p">&gt;()</span> <span class="k">is</span> <span class="p">{</span> <span class="p">}</span> <span class="n">newValue</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">RegistrationMapper</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">newValue</span><span class="p">,</span> <span class="n">sender</span><span class="p">);</span>
+        <span class="n">RegistrationMapper</span><span class="p">[</span><span class="n">newValue</span><span class="p">]</span> <span class="p">=</span> <span class="n">sender</span><span class="p">;</span>
+        <span class="c1">// Clean up when the visual is detached from the visual tree (e.g. dialog closed),</span>
+        <span class="c1">// and detach the event handler to avoid accumulating closures across DataContext changes.</span>
+        <span class="n">EventHandler</span><span class="p">&lt;</span><span class="n">VisualTreeAttachmentEventArgs</span><span class="p">&gt;?</span> <span class="n">handler</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="n">handler</span> <span class="p">=</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="p">=&gt;</span>
+        <span class="p">{</span>
+            <span class="n">RegistrationMapper</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">newValue</span><span class="p">);</span>
+            <span class="n">sender</span><span class="p">.</span><span class="n">DetachedFromVisualTree</span> <span class="p">-=</span> <span class="n">handler</span><span class="p">;</span>
+        <span class="p">};</span>
+        <span class="n">sender</span><span class="p">.</span><span class="n">DetachedFromVisualTree</span> <span class="p">+=</span> <span class="n">handler</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Because <code>RegistrationMapper</code> is a static dictionary, forgetting to remove entries would prevent both the ViewModel and the Visual from being garbage collected. The <code>DetachedFromVisualTree</code> handler above ensures entries are cleaned up automatically when, for example, a dialog window is closed.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2237,7 +2250,7 @@ Technically we can also map to <code>object</code> or any other base class, but 
 <div class="sect2">
 <h3 id="_step_3_create_extension_methods">Step 3: Create extension methods</h3>
 <div class="paragraph">
-<p>If we are even more lazy, we can add some extension methods which we can use later to call a dialog in one line. To do this we add a new static class <code>DialogHelper</code> into our <code>Services</code>-folder.</p>
+<p>If we are even more lazy, we can add some extension methods that we can use later to call a dialog in one line. To do this, we add a new static class <code>DialogHelper</code> into our <code>Services</code>-folder.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2272,8 +2285,8 @@ Technically we can also map to <code>object</code> or any other base class, but 
                 <span class="n">Title</span> <span class="p">=</span> <span class="n">title</span> <span class="p">??</span> <span class="s">"Select any file(s)"</span>
             <span class="p">});</span>
 
-        <span class="c1">// return the result</span>
-        <span class="k">return</span> <span class="n">storageFiles</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+        <span class="c1">// return the result as full local paths where available, falling back to the file name</span>
+        <span class="k">return</span> <span class="n">storageFiles</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="nf">TryGetLocalPath</span><span class="p">()</span> <span class="p">??</span> <span class="n">s</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre>
 </div>
@@ -2285,7 +2298,7 @@ Technically we can also map to <code>object</code> or any other base class, but 
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Please have a look in the samples code for some more possible options. The <code>DialogHelper</code> can be part of a separate controls library or part of your application. A mix is also possible.
+Please have a look in the sample code for some more possible options. The <code>DialogHelper</code> can be part of a separate controls library or part of your application. A mix is also possible.
 </td>
 </tr>
 </table>
@@ -2390,7 +2403,7 @@ In the source code of this sample we have some more dialogs applied. Feel free t
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-11-16 14:41:23 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>

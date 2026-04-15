@@ -2060,7 +2060,7 @@ pre.rouge .gs {
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This example will show you how to create a custom control that overrides <code>OnRender</code> in order to have advanced render capabilities. It also shows how custom hit-testing can help to solve special tasks. We will create a simple game where the user should collect some snowflakes with their mouse pointer.</p>
+<p>This example will show you how to create a custom control that overrides <code>OnRender</code> in order to have advanced render capabilities. We will create a simple game where the user should collect some snowflakes with their mouse pointer.</p>
 </div>
 <!-- toc disabled -->
 <h3 id="_difficulty" class="discrete">Difficulty</h3>
@@ -2082,10 +2082,10 @@ pre.rouge .gs {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../../../../README.html#_mvvm_samples">[MVVM-Basics]</a></p>
+<p><a href="../../../../index.html#_mvvm_samples">[MVVM-Basics]</a></p>
 </li>
 <li>
-<p><a href="../../CustomControls/RatingControlSample/README.html">[RatingControlSample]</a></p>
+<p><a href="../../CustomControls/RatingControlSample/index.html">[RatingControlSample]</a></p>
 </li>
 <li>
 <p><a href="https://docs.avaloniaui.net/docs/guides/custom-controls/">[Avalonia-Documentation]</a></p>
@@ -2117,7 +2117,7 @@ pre.rouge .gs {
 <div class="sect2">
 <h3 id="_defining_the_game_concept">Defining the game concept</h3>
 <div class="paragraph">
-<p>Before we finally start to implement the game, we should make some considerations how our control should look like and how it should work. To shorten it, we use a plain list of notes:</p>
+<p>Before we finally start to implement the game, we should make some considerations what our control should look like and how it should work. To shorten it, we use a plain list of notes:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2135,7 +2135,7 @@ pre.rouge .gs {
 <p>Each snowflake should have a random start position</p>
 </li>
 <li>
-<p>Each snowflake should be able to move with different speed</p>
+<p>Each snowflake should be able to move with a different speed</p>
 </li>
 <li>
 <p>Snowflakes should be of different sizes</p>
@@ -2177,7 +2177,7 @@ pre.rouge .gs {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-To show you how this control can be bound to a <code>ViewModel</code> we will use the <code>MVVM</code>-pattern for demonstration here, even if it is not really needed in our case.
+To show you how this control can be bound to a <code>ViewModel</code> we will use the <code>MVVM</code>-pattern for demonstration here, even if it is not really necessary in our case.
 </td>
 </tr>
 </table>
@@ -2215,17 +2215,17 @@ To show you how this control can be bound to a <code>ViewModel</code> we will us
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Diameter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">double</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the diameter in pixel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the diameter in pixel-unit</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Radius</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">double</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the radius in pixel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the radius in pixel-unit</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Speed</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">double</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the peed of the snowflake in 1/second (relative unit)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the speed of the snowflake in 1/second (relative unit)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2245,7 +2245,7 @@ In Avalonia you can use <code>Bounds</code> to get the Controls bounds, which we
 </table>
 </div>
 <div class="paragraph">
-<p>To achieve this conversion we add method that takes a <code>Rect</code> as parameter and returns a <code>Point</code> positioned inside this rectangle.</p>
+<p>To achieve this conversion, we add method that takes a <code>Rect</code> as parameter and returns a <code>Point</code> positioned inside this rectangle.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2289,7 +2289,7 @@ In Avalonia you can use <code>Bounds</code> to get the Controls bounds, which we
 </div>
 </div>
 <div class="paragraph">
-<p>Last but not least the hit-score can be calculated in the following way:</p>
+<p>Last but not least, the hit-score can be calculated in the following way:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2307,7 +2307,7 @@ In Avalonia you can use <code>Bounds</code> to get the Controls bounds, which we
 <div class="sect2">
 <h3 id="_step_2_set_up_the_gameviewmodel">Step 2: Set up the GameViewModel</h3>
 <div class="paragraph">
-<p>The <code>ViewModel</code> will be responsible for creating and managing the snowflakes, tracking the game status and storing the users current score.</p>
+<p>The <code>ViewModel</code> will be responsible for creating and managing the snowflakes, tracking the game status and storing the user’s current score.</p>
 </div>
 <div class="paragraph">
 <p>It has the following public properties:</p>
@@ -2340,7 +2340,7 @@ In Avalonia you can use <code>Bounds</code> to get the Controls bounds, which we
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GameDurationMilliseconds</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">double</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gets duration of the game in milliseconds.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the duration of the game in milliseconds.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MillisecondsRemaining</p></td>
@@ -2390,7 +2390,7 @@ In Avalonia you can use <code>Bounds</code> to get the Controls bounds, which we
 </tbody>
 </table>
 <div class="paragraph">
-<p>To start a new game we add a <a href="../../MVVM/CommandSample/README.html">[Command]</a> which will clear any previous snowflakes, add some new snowflakes with random parameters and start the game:</p>
+<p>To start a new game, we add a <a href="../../MVVM/CommandSample/index.html">[Command]</a> which will clear any previous snowflakes, add some new snowflakes with random parameters and start the game:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2485,7 +2485,7 @@ In Avalonia you can use <code>Bounds</code> to get the Controls bounds, which we
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Score</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">double</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gets or sets the users score. This is a direct property.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets or sets the user’s score. This is a direct property.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2596,20 +2596,20 @@ In Avalonia you can use <code>Bounds</code> to get the Controls bounds, which we
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We use <code>Dispatcher.UIThread.Post</code> to request the next frame in order to give the UI-thread enough time to handle input etc. If we didn&#8217;t use the dispatcher, the app would freeze.
+We use <code>Dispatcher.UIThread.Post</code> to request the next frame to give the UI-thread enough time to handle input etc. If we didn&#8217;t use the dispatcher, the app would freeze.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>This is how a single render frame would look like:</p>
+<p>This is what a single render frame would look like:</p>
 </div>
 <div class="paragraph">
 <div class="title">Result of a single render loop</div>
 <p><span class="image"><img src="_docs/single_render_frame.png" alt="single render frame"></span></p>
 </div>
 <div class="paragraph">
-<p>As we want to check if our pointer is over any <code>Snowflake</code>, we will override the <code>OnPointerEntered</code> and <code>OnPointerMoved</code> methods. From the <code>PointerEventArgs</code> we can read the pointer position and forward it to a method that tests for hits,</p>
+<p>As we want to check if our pointer is over any <code>Snowflake</code>, we will override the <code>OnPointerEntered</code> and <code>OnPointerMoved</code> methods. From the <code>PointerEventArgs</code> we can read the pointer position and forward it to a method that tests for hits.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2690,7 +2690,7 @@ We use <code>Dispatcher.UIThread.Post</code> to request the next frame in order 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Remember to add the needed xml-namespaces
+Remember to add the necessary xml-namespaces
 </td>
 </tr>
 </table>
@@ -2750,7 +2750,7 @@ In <code>App.axaml</code> set <code>RequestedThemeVariant</code> to <code>"Dark"
 </table>
 </div>
 <div class="paragraph">
-<p>This is how the control will look like now (notice how the snowflakes disappear):</p>
+<p>This is what the control will look like now (notice how the snowflakes disappear):</p>
 </div>
 <div class="paragraph">
 <div class="title">First run output</div>
@@ -2763,7 +2763,7 @@ In <code>App.axaml</code> set <code>RequestedThemeVariant</code> to <code>"Dark"
 <div class="sect2">
 <h3 id="_bonus_1_implement_a_custom_draw_operation">Bonus 1: Implement a custom draw operation</h3>
 <div class="paragraph">
-<p>If the provided render operations are not enough, you can create a new class which implements <code>ICustomDrawOperation</code>. In this sample we want to display the user score with a nice glow effect using the <a href="https://learn.microsoft.com/en-us/dotnet/api/skiasharp?view=skiasharp-2.88">[<code>SkiaSharp-API</code>]</a>.</p>
+<p>If the provided render operations are not enough, you can create a new class which implements <code>ICustomDrawOperation</code>. In this sample we want to display the user score with a nice glow effect using the <a href="https://learn.microsoft.com/en-us/dotnet/api/skiasharp?view=skiasharp-3.119">[<code>SkiaSharp-API</code>]</a>.</p>
 </div>
 <div class="paragraph">
 <p>The interface requires the following members to be implemented:</p>
@@ -2811,7 +2811,7 @@ In <code>App.axaml</code> set <code>RequestedThemeVariant</code> to <code>"Dark"
 </tbody>
 </table>
 <div class="paragraph">
-<p>In addition to the interface members we will add one more property:</p>
+<p>In addition to the interface members, we will add one more property:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 7. Properties of ScoreRenderer</caption>
@@ -2848,18 +2848,22 @@ In <code>App.axaml</code> set <code>RequestedThemeVariant</code> to <code>"Dark"
     <span class="c1">// In case we didn't find it, render the text with a fallback.</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">leaseFeature</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="kt">var</span> <span class="n">glyphs</span> <span class="p">=</span> <span class="n">Text</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">Typeface</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GlyphTypeface</span><span class="p">.</span><span class="nf">GetGlyph</span><span class="p">(</span><span class="n">c</span><span class="p">)).</span><span class="nf">ToArray</span><span class="p">();</span>
-
-        <span class="kt">var</span> <span class="n">glyphRun</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GlyphRun</span><span class="p">(</span><span class="n">Typeface</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GlyphTypeface</span><span class="p">,</span>
+        <span class="k">using</span> <span class="nn">var</span> <span class="n">shapedBuffer</span> <span class="p">=</span> <span class="n">TextShaper</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="nf">ShapeText</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="nf">AsMemory</span><span class="p">(),</span> <span class="k">new</span> <span class="nf">TextShaperOptions</span><span class="p">(</span><span class="n">Typeface</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GlyphTypeface</span><span class="p">,</span> <span class="m">20</span><span class="p">));</span>
+        <span class="kt">var</span> <span class="n">glyphRun</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GlyphRun</span><span class="p">(</span>
+            <span class="n">Typeface</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GlyphTypeface</span><span class="p">,</span>
             <span class="m">20</span><span class="p">,</span>
             <span class="n">Text</span><span class="p">.</span><span class="nf">AsMemory</span><span class="p">(),</span>
-            <span class="n">glyphs</span><span class="p">,</span>
+            <span class="n">shapedBuffer</span><span class="p">,</span>
             <span class="n">Bounds</span><span class="p">.</span><span class="n">TopRight</span> <span class="p">-</span> <span class="k">new</span> <span class="nf">Point</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">50</span><span class="p">));</span>
 
-        <span class="n">context</span><span class="p">.</span><span class="nf">DrawGlyphRun</span><span class="p">(</span><span class="n">Brushes</span><span class="p">.</span><span class="n">Goldenrod</span><span class="p">,</span> <span class="n">glyphRun</span><span class="p">.</span><span class="nf">TryCreateImmutableGlyphRunReference</span><span class="p">()!);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">glyphRun</span><span class="p">.</span><span class="nf">TryCreateImmutableGlyphRunReference</span><span class="p">()</span> <span class="k">is</span> <span class="p">{</span> <span class="p">}</span> <span class="n">glyphRunReference</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">context</span><span class="p">.</span><span class="nf">DrawGlyphRun</span><span class="p">(</span><span class="n">Brushes</span><span class="p">.</span><span class="n">Goldenrod</span><span class="p">,</span> <span class="n">glyphRunReference</span><span class="p">);</span>
+        <span class="p">}</span>
     <span class="p">}</span>
+
     <span class="c1">// Otherwise use SkiaSharp to render the text and apply some glow-effect.</span>
-    <span class="c1">// Find the SkiaSharp-API here: https://learn.microsoft.com/en-us/dotnet/api/skiasharp?view=skiasharp-2.88</span>
+    <span class="c1">// Find the SkiaSharp-API here: https://learn.microsoft.com/en-us/dotnet/api/skiasharp?view=skiasharp-3.119</span>
     <span class="k">else</span>
     <span class="p">{</span>
         <span class="k">using</span> <span class="nn">var</span> <span class="n">lease</span> <span class="p">=</span> <span class="n">leaseFeature</span><span class="p">.</span><span class="nf">Lease</span><span class="p">();</span>
@@ -2868,15 +2872,16 @@ In <code>App.axaml</code> set <code>RequestedThemeVariant</code> to <code>"Dark"
 
         <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">paint</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SKPaint</span><span class="p">())</span>
         <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">font</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SKFont</span> <span class="p">{</span> <span class="n">Size</span> <span class="p">=</span> <span class="m">30</span> <span class="p">};</span>
             <span class="n">paint</span><span class="p">.</span><span class="n">Shader</span> <span class="p">=</span> <span class="n">SKShader</span><span class="p">.</span><span class="nf">CreateColor</span><span class="p">(</span><span class="n">SKColors</span><span class="p">.</span><span class="n">Goldenrod</span><span class="p">);</span>
-            <span class="n">paint</span><span class="p">.</span><span class="n">TextSize</span> <span class="p">=</span> <span class="m">30</span><span class="p">;</span>
-            <span class="n">paint</span><span class="p">.</span><span class="n">TextAlign</span> <span class="p">=</span> <span class="n">SKTextAlign</span><span class="p">.</span><span class="n">Right</span><span class="p">;</span>
+            <span class="n">paint</span><span class="p">.</span><span class="n">ImageFilter</span> <span class="p">=</span> <span class="n">SKImageFilter</span><span class="p">.</span><span class="nf">CreateDropShadow</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">SKColors</span><span class="p">.</span><span class="n">White</span><span class="p">);</span>
 
             <span class="kt">var</span> <span class="n">origin</span> <span class="p">=</span> <span class="n">Bounds</span><span class="p">.</span><span class="n">TopRight</span><span class="p">.</span><span class="nf">ToSKPoint</span><span class="p">();</span>
             <span class="n">origin</span><span class="p">.</span><span class="nf">Offset</span><span class="p">(-</span><span class="m">25</span><span class="p">,</span> <span class="p">+</span><span class="m">50</span><span class="p">);</span>
 
-            <span class="n">paint</span><span class="p">.</span><span class="n">ImageFilter</span> <span class="p">=</span> <span class="n">SKImageFilter</span><span class="p">.</span><span class="nf">CreateDropShadow</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">SKColors</span><span class="p">.</span><span class="n">White</span><span class="p">);</span>
-            <span class="n">canvas</span><span class="p">.</span><span class="nf">DrawText</span><span class="p">(</span><span class="n">Text</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">paint</span><span class="p">);</span>
+            <span class="c1">// Use new DrawText overload with SKTextAlign</span>
+            <span class="n">canvas</span><span class="p">.</span><span class="nf">DrawText</span><span class="p">(</span><span class="n">Text</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">SKTextAlign</span><span class="p">.</span><span class="n">Right</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="n">paint</span><span class="p">);</span>
+            <span class="n">font</span><span class="p">.</span><span class="nf">Dispose</span><span class="p">();</span>
         <span class="p">}</span>
         <span class="n">canvas</span><span class="p">.</span><span class="nf">Restore</span><span class="p">();</span>
     <span class="p">}</span>
@@ -2891,18 +2896,6 @@ In <code>App.axaml</code> set <code>RequestedThemeVariant</code> to <code>"Dark"
 </td>
 <td class="content">
 SkiaSharp may be not always available. In this case it is highly recommended to provide a fallback.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You may see a warning about using an unstable API. This is okay to ignore, however you may need to adjust your code when you update to a newer Avalonia version.
 </td>
 </tr>
 </table>
@@ -3049,7 +3042,7 @@ This class can be internal as it is only meant to be consumed by the control its
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../../../../README.html#_drawing_samples">Samples.DrawingSamples</a></p>
+<p><a href="../../../../index.html#_drawing_samples">Samples.DrawingSamples</a></p>
 </li>
 <li>
 <p><a href="https://github.com/AvaloniaUI/Avalonia/tree/master/samples/RenderDemo">Avalonia.RenderDemo</a></p>
@@ -3061,7 +3054,7 @@ This class can be internal as it is only meant to be consumed by the control its
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-12-25 12:47:29 UTC
+Last updated 2026-04-13 18:32:08 UTC
 </div>
 </div>
 </body>
