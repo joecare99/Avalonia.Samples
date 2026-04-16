@@ -2,7 +2,6 @@ namespace MusicStore
 
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
-open Avalonia.Data.Core.Plugins
 open Avalonia.Markup.Xaml
 open MusicStore.ViewModels
 open MusicStore.Views
